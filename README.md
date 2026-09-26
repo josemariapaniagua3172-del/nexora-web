@@ -11,7 +11,10 @@ nexora-web/
 ├── css/styles.css        Estilos. Colores base en :root (arriba de todo)
 ├── js/productos.js       ← DATOS: número de WhatsApp, categorías y productos
 ├── js/app.js             Lógica: catálogo, filtros, detalle, pedido y mensaje de WhatsApp
-└── assets/productos/     Fotos de los frascos (.webp con fondo transparente)
+├── assets/productos/     Fotos de los frascos (.webp con fondo transparente)
+├── assets/logo/          Logo: símbolo (SVG), horizontal claro/oscuro (PNG), foto de perfil 1080 (PNG)
+├── favicon.svg           Ícono de la pestaña
+└── apple-touch-icon.png  Ícono al guardar la web en el iPhone
 ```
 
 ## Cambios más comunes
@@ -25,6 +28,8 @@ nexora-web/
 | Cambiar textos de secciones      | `index.html`                                                 |
 | Cambiar colores                  | `css/styles.css` → variables `--bg`, `--ink`, `--accent`…    |
 | Cambiar el mensaje de WhatsApp   | `js/app.js` → función `orderMessage()`                       |
+| Cambiar preguntas frecuentes     | `index.html` → sección `id="ayuda"`                          |
+| Cambiar el aviso legal           | `index.html` → pie de página, bloque `legal`                 |
 
 ## Ver la web en tu compu
 

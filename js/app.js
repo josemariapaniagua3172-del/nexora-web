@@ -26,6 +26,7 @@ function orderMessage() {
   const out = ["Hola Nexora, quiero hacer este pedido:", "", ...lines, "", `Total: Bs ${fmt(total())}`];
   if (name) out.push(`Nombre: ${name}`);
   if (note) out.push(`Comentario: ${note}`);
+  out.push("", "¿Me confirman stock, forma de pago y entrega? Gracias.");
   return out.join("\n");
 }
 
@@ -42,7 +43,9 @@ function sync() {
   const n = count();
   $("#bagBtn").classList.toggle("has", n > 0);
   $("#bagCount").textContent = n;
-  $("#bar").classList.toggle("show", n > 0 && !$("#bag").open);
+  const showBar = n > 0 && !$("#bag").open;
+  $("#bar").classList.toggle("show", showBar);
+  document.body.classList.toggle("has-bar", showBar || $("#bag").open);
   $("#barText").innerHTML = `<b>${n} ${n === 1 ? "producto" : "productos"}</b> · Bs ${fmt(total())}`;
   $$("[data-add]").forEach(b => {
     const q = cart[b.dataset.add] || 0;
@@ -64,7 +67,7 @@ function sync() {
     $("#bagFoot").style.display = "";
     list.innerHTML = items().map(({p, q}) => `
       <div class="bag-item">
-        <img src="assets/productos/${p.img}" alt="">
+        <img src="assets/productos/${p.img}" width="400" height="900" alt="">
         <div><b>${p.name}</b><div class="sub">${p.sub} · ${p.mg}</div>
           <div class="step-q"><button data-dec="${p.id}" aria-label="Quitar uno">−</button><span>${q}</span><button data-inc="${p.id}" aria-label="Agregar uno">+</button></div></div>
         <div><div class="lt">Bs ${fmt(q * p.price)}</div><button class="rm" data-rm="${p.id}">Quitar</button></div>
@@ -79,7 +82,7 @@ function updateSend() { if (count()) $("#bagSend").href = wa(orderMessage()); }
 // Frascos de la portada (ids de productos.js), de izquierda a derecha
 const lineupIds = ["nad","rt60","tr120","ghk100","klow80"].filter(byId), hs = [.62,.8,1,.8,.62];
 $("#lineup").innerHTML = lineupIds.map((id,i)=>
-  `<img src="assets/productos/${byId(id).img}" alt="" style="--h:calc(${hs[i]} * clamp(150px,36vw,470px));animation-delay:${.15+Math.abs(i-2)*.12}s;z-index:${3-Math.abs(i-2)}">`).join("");
+  `<img src="assets/productos/${byId(id).img}" width="400" height="900" alt="" style="--h:calc(${hs[i]} * clamp(150px,36vw,470px));animation-delay:${.15+Math.abs(i-2)*.12}s;z-index:${3-Math.abs(i-2)}">`).join("");
 
 const chips = [["all","Todos"],...Object.entries(CATS)];
 $("#chips").innerHTML = chips.map(([k,v],i)=>`<button class="chip" data-f="${k}" aria-pressed="${i===0}">${v}</button>`).join("");
@@ -92,7 +95,7 @@ $("#chips").addEventListener("click", e=>{
 $("#grid").innerHTML = PRODUCTS.map(p=>`
   <article class="card rv" data-cat="${p.cat}">
     <button class="open" data-open="${p.id}" aria-label="Ver detalle de ${p.name}">
-      <div class="ph"><span class="tag">${CATS[p.cat]}</span><img src="assets/productos/${p.img}" alt="Frasco ${p.name} ${p.mg}" loading="lazy"></div>
+      <div class="ph"><span class="tag">${CATS[p.cat]}</span><img src="assets/productos/${p.img}" width="400" height="900" alt="Frasco ${p.name} ${p.mg}" loading="lazy"></div>
       <h3>${p.name}</h3><div class="sub">${p.sub} · ${p.mg}</div>
     </button>
     <div class="row"><span class="price">${bs(p.price)}</span><button class="add" data-add="${p.id}"></button></div>
@@ -100,11 +103,9 @@ $("#grid").innerHTML = PRODUCTS.map(p=>`
 
 $("#plist").innerHTML = PRODUCTS.map(p=>`
   <div class="prow">
-    <span class="open" data-open="${p.id}">
-      <img src="assets/productos/${p.img}" alt="" loading="lazy">
-      <div><b>${p.name}</b><span class="m">${p.sub} · ${p.mg}</span></div>
-      <span class="c">${p.sub} · ${p.mg}</span>
-    </span>
+    <img src="assets/productos/${p.img}" width="400" height="900" alt="" loading="lazy" data-open="${p.id}">
+    <button class="pname" data-open="${p.id}" aria-label="Ver detalle de ${p.name}"><b>${p.name}</b><span class="m">${p.sub} · ${p.mg}</span></button>
+    <span class="c" data-open="${p.id}">${p.sub} · ${p.mg}</span>
     <span class="price">${bs(p.price)}</span>
     <button class="add" data-add="${p.id}"></button>
   </div>`).join("");
@@ -122,7 +123,7 @@ function openP(id){
   $("#mAsk").href = wa(`Hola Nexora, quiero consultar por ${p.name} (${p.sub}, ${p.mg}) — Bs ${fmt(p.price)}.`);
   sync(); modal.showModal();
 }
-function openBag(){ if (modal.open) modal.close(); sync(); bag.showModal(); $("#bar").classList.remove("show"); }
+function openBag(){ if (modal.open) modal.close(); bag.showModal(); sync(); }
 
 document.addEventListener("click", e=>{
   const t = e.target;
@@ -132,12 +133,14 @@ document.addEventListener("click", e=>{
   const dec = t.closest("[data-dec]"); if (dec) { setQty(dec.dataset.dec, (cart[dec.dataset.dec]||0)-1); return; }
   const rm = t.closest("[data-rm]"); if (rm) { setQty(rm.dataset.rm, 0); return; }
   const c = t.closest("[data-close]"); if (c) { c.closest("dialog").close(); return; }
-  const w = t.closest("a.wa"); if (w) { e.preventDefault(); window.open(wa(w.dataset.msg), "_blank", "noopener"); }
 });
 $("#mAdd").onclick = () => add(modal.dataset.id);
 $("#bagBtn").onclick = openBag;
 $("#barBtn").onclick = openBag;
-$("#bagClear").onclick = () => { cart = {}; save(); sync(); };
+$("#bagClear").onclick = () => { cart = {}; save(); bag.classList.remove("was-sent"); sync(); };
+$("#bagSend").addEventListener("click", () => setTimeout(() => bag.classList.add("was-sent"), 600));
+// Enlaces de WhatsApp reales (funcionan también con clic largo / "abrir en pestaña nueva")
+$$("a.wa").forEach(a => a.href = wa(a.dataset.msg));
 ["#fName","#fNote"].forEach(s => $(s).addEventListener("input", updateSend));
 [modal, bag].forEach(d => {
   d.addEventListener("click", e => { if (e.target === d) d.close(); });

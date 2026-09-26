@@ -1,6 +1,6 @@
 /* Nexora Labs — estilos. Colores y medidas base en :root */
 :root{
-  --bg:#F6F5F1; --surface:#FFFFFF; --ink:#101317; --mute:#72767D; --line:#E4E1DA;
+  --bg:#F6F5F1; --surface:#FFFFFF; --ink:#101317; --mute:#676B72; --line:#E4E1DA;
   --arch:#ECEAE4; --accent:#1F3A6E; --accent-soft:#E7ECF5;
   --radius:22px; --max:1200px; --pad:clamp(20px,5vw,56px);
   --ease:cubic-bezier(.2,.7,.2,1);
@@ -31,6 +31,8 @@ header.scrolled{border-color:var(--line)}
 .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.38em;font-size:14px}
 .brand svg{width:26px;height:26px}
+.mark path,.mark rect{fill:currentColor}
+.mark .n path,.mark .n rect{fill:var(--bg)}
 .links{display:flex;gap:34px;font-size:14.5px;color:var(--mute);font-weight:500}
 .links a:hover{color:var(--ink)}
 .nav .btn{height:42px;padding:0 20px;font-size:14px}
@@ -212,8 +214,6 @@ dialog[open] .panel{animation:pop .45s var(--ease)}
 .add .t{display:none}
 .add.in .t{display:inline}
 .prow{cursor:default}
-.prow .open{display:contents;cursor:pointer}
-.prow .open > *{cursor:pointer}
 .prow{grid-template-columns:64px 1.2fr 1.4fr auto auto}
 @media (max-width:640px){ .prow{grid-template-columns:48px 1fr auto auto} }
 
@@ -264,3 +264,42 @@ dialog[open] .panel{animation:pop .45s var(--ease)}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv,.lineup img{opacity:1;transform:none}
 }
+
+/* PREGUNTAS FRECUENTES */
+.faq-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(40px,7vw,100px);align-items:start}
+@media (max-width:900px){ .faq-grid{grid-template-columns:1fr} }
+.faq-grid h2{font-size:clamp(36px,5vw,64px);margin-top:16px}
+.faq-grid .lead{color:var(--mute);font-size:18px;margin:22px 0 30px;max-width:40ch}
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;font-weight:600;font-size:18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:14px;height:14px;margin-top:-7px;
+  background:linear-gradient(currentColor,currentColor) center/14px 1.6px no-repeat,linear-gradient(currentColor,currentColor) center/1.6px 14px no-repeat;
+  transition:transform .35s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--mute);padding:0 40px 24px 0;font-size:16px}
+.faq details p b{color:var(--ink);font-weight:600}
+
+/* PIE: AVISO LEGAL */
+.legal{padding-top:26px;display:grid;gap:10px;font-size:13px;max-width:80ch}
+.legal b{color:var(--ink);font-weight:600}
+footer .bottom{margin-top:26px;border-top:1px solid var(--line)}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.fab{position:fixed;right:18px;bottom:18px;z-index:44;width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 18px 36px -14px rgba(16,19,23,.6);
+  transition:transform .4s var(--ease),opacity .3s}
+.fab svg{width:26px;height:26px}
+.fab:hover{transform:translateY(-3px)}
+body.has-bar .fab{opacity:0;pointer-events:none;transform:translateY(20px)}
+
+/* LISTA DE PRECIOS: nombre como botón */
+.prow .pname{text-align:left;cursor:pointer}
+.prow .pname:hover b{text-decoration:underline;text-underline-offset:4px}
+.prow img,.prow .c{cursor:pointer}
+
+/* PEDIDO: después de enviar */
+.sent{display:none;text-align:center;font-size:13px;color:var(--mute);margin-top:14px}
+#bag.was-sent .sent{display:block}
+#bag.was-sent .clear{margin-top:6px;color:var(--ink);font-weight:600}

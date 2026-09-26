@@ -8,6 +8,8 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 - `js/app.js`: render de hero, grilla, lista de precios, modal de detalle (`<dialog id="modal">`), pedido (`<dialog id="bag">`, barra flotante `#bar`). Pedido guardado en `localStorage` (`nexora_cart`), siempre con try/catch.
 - `css/styles.css`: tokens en `:root`; estética blanca cálida minimalista (bg `#F6F5F1`, tinta `#101317`, acento `#1F3A6E`, fuente Manrope).
 - `assets/productos/*.webp`: frascos recortados con fondo transparente, ~900px de alto.
+- Logo: hexágono sólido con N en negativo (SVG inline `.mark` en header/footer; archivos en `assets/logo/`, `favicon.svg`, `apple-touch-icon.png`).
+- Atención, pagos y entregas: todo por WhatsApp (sección `#ayuda` con preguntas frecuentes, botón flotante `#fab`). No inventar ciudades, costos ni medios de pago: el usuario no los definió.
 
 ## Convenciones
 - Mantener la estética minimalista: mucho aire, pocas palabras, un frasco protagonista, sin saturar.
@@ -17,7 +19,7 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 - Commits chicos y descriptivos en español después de cada mejora que el usuario apruebe.
 
 ## Pendientes / dudas abiertas
+- Vista previa al compartir (Open Graph + imagen 1200×630): hacerla cuando haya URL final publicada.
 - NAD+: catálogo dice 1000 mg (Bs 900), un anuncio viejo decía 500 mg.
-- Logo: se usa un hexágono SVG provisorio; reemplazar si el usuario pasa el logo real.
 - Productos no incluidos: GHK-CU 70 mg (línea en inglés, sin precio), KLOW80 + KPV.
 - No ayudar a evadir las políticas de anuncios de Meta (el usuario lo pidió antes y se rechazó).

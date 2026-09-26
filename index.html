@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nexora Labs — Péptidos de alta pureza</title>
-<meta name="description" content="Nexora Labs. Péptidos liofilizados de alta pureza. Ciencia real, resultados reales.">
+<meta name="description" content="Nexora Labs. Péptidos liofilizados de alta pureza. Armá tu pedido y envialo por WhatsApp. Ciencia real, resultados reales.">
 <meta name="theme-color" content="#F6F5F1">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 56 18v28L32 60 8 46V18z' fill='%23101317'/%3E%3Cpath d='M23 42V22l18 20V22' stroke='%23F6F5F1' stroke-width='4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,14 +18,14 @@
 <header id="top">
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Nexora Labs">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 42V22l16 20V22" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linejoin="round"/></svg>
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 2 58 17v30L32 62 6 47V17Z"/><g class="n"><rect x="20" y="20" width="5" height="24"/><rect x="39" y="20" width="5" height="24"/><path d="M25 20h5.2l8.8 17.5V44h-.2L25 26.5Z"/></g></svg>
       NEXORA
     </a>
     <nav class="links" aria-label="Principal">
-      <a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#comprar">Cómo comprar</a>
+      <a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#comprar">Cómo comprar</a><a href="#ayuda">Ayuda</a>
     </nav>
     <div class="nav-r">
-    <a class="btn btn-dark wa" href="#" data-msg="Hola Nexora, quiero hacer una consulta.">Consultar</a>
+    <a class="btn btn-dark wa" href="#" target="_blank" rel="noopener" data-msg="Hola Nexora, quiero hacer una consulta.">Consultar</a>
     <button class="bag-btn" id="bagBtn" aria-label="Ver mi pedido">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
       <span class="count" id="bagCount">0</span>
@@ -36,8 +37,8 @@
   </div>
 </header>
 <div class="sheet" id="sheet">
-  <a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#comprar">Cómo comprar</a>
-  <a class="btn btn-dark wa" href="#" data-msg="Hola Nexora, quiero hacer una consulta.">Consultar por WhatsApp</a>
+  <a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#comprar">Cómo comprar</a><a href="#ayuda">Ayuda</a>
+  <a class="btn btn-dark wa" href="#" target="_blank" rel="noopener" data-msg="Hola Nexora, quiero hacer una consulta.">Consultar por WhatsApp</a>
 </div>
 
 <main>
@@ -89,7 +90,7 @@
       </div>
       <div class="q-visual rv">
         <div class="badge"><b>99%</b><span>PUREZA</span></div>
-        <img src="assets/productos/klow80.webp" alt="Frasco KLOW80 de Nexora Labs" loading="lazy">
+        <img src="assets/productos/klow80.webp" width="400" height="900" alt="Frasco KLOW80 de Nexora Labs" loading="lazy">
       </div>
     </div>
   </section>
@@ -106,9 +107,28 @@
     <div class="wrap">
       <div class="head rv"><div><div class="eyebrow">Simple y directo</div><h2>Cómo comprar</h2></div></div>
       <div class="steps">
-        <div class="step rv"><div class="n">01</div><h3>Elegí tu producto</h3><p>Explorá el catálogo y mirá el detalle de cada péptido.</p></div>
-        <div class="step rv"><div class="n">02</div><h3>Escribinos</h3><p>Consultá por WhatsApp: te confirmamos stock, precio y entrega.</p></div>
-        <div class="step rv"><div class="n">03</div><h3>Recibilo</h3><p>Coordinamos el envío o la entrega de tu pedido.</p></div>
+        <div class="step rv"><div class="n">01</div><h3>Armá tu pedido</h3><p>Sumá uno o varios productos con el botón +.</p></div>
+        <div class="step rv"><div class="n">02</div><h3>Envialo por WhatsApp</h3><p>Tu pedido llega armado. Te confirmamos stock y total, y coordinamos el pago.</p></div>
+        <div class="step rv"><div class="n">03</div><h3>Recibilo</h3><p>Coordinamos la entrega o el envío a tu ciudad, también por WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ayuda" style="padding-top:0">
+    <div class="wrap faq-grid">
+      <div class="rv">
+        <div class="eyebrow">Atención por WhatsApp</div>
+        <h2>Preguntas frecuentes</h2>
+        <p class="lead">Toda la atención, los pagos y las entregas se coordinan por WhatsApp. Te respondemos personalmente.</p>
+        <a class="btn btn-dark wa" href="#" target="_blank" rel="noopener" data-msg="Hola Nexora, tengo una consulta.">Escribinos</a>
+      </div>
+      <div class="faq rv">
+        <details><summary>¿Cómo hago un pedido?</summary><p>Agregá los productos con el botón <b>+</b>, tocá <b>Ver pedido</b> y envialo por WhatsApp. El mensaje llega con tus productos, cantidades y total; nosotros te confirmamos stock y te guiamos en el resto.</p></details>
+        <details><summary>¿Cómo pago?</summary><p>El pago se coordina por WhatsApp una vez confirmado tu pedido. Ahí te enviamos los datos y las opciones de pago disponibles.</p></details>
+        <details><summary>¿Hacen envíos?</summary><p>Coordinamos la entrega o el envío según tu ciudad. Antes de pagar te confirmamos el costo y el tiempo de entrega.</p></details>
+        <details><summary>¿Cómo se conservan los productos?</summary><p>Son péptidos liofilizados. Con tu pedido te pasamos las indicaciones de conservación; en general se guardan refrigerados (2–8 °C), sin congelar y protegidos de la luz.</p></details>
+        <details><summary>¿Cómo sé que el producto es de calidad?</summary><p>Trabajamos con péptidos de 99% de pureza y trazabilidad en cada lote. Si tenés cualquier duda sobre un producto, escribinos y te respondemos.</p></details>
+        <details><summary>¿Puedo consultar antes de comprar?</summary><p>Sí. Escribinos por WhatsApp, sin compromiso, y te ayudamos a elegir el producto indicado.</p></details>
       </div>
     </div>
   </section>
@@ -120,14 +140,14 @@
           <div class="eyebrow">Tu mejor versión es ahora</div>
           <h2>Disciplina hoy. Un mejor mañana.</h2>
           <p>Escribinos y te asesoramos para elegir el producto indicado.</p>
-          <a class="btn wa" href="#" data-msg="Hola Nexora, quiero asesoramiento para elegir un producto.">
+          <a class="btn wa" href="#" target="_blank" rel="noopener" data-msg="Hola Nexora, quiero asesoramiento para elegir un producto.">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
             Hablar por WhatsApp</a>
         </div>
         <div class="v" aria-hidden="true">
-          <img src="assets/productos/nad.webp" alt="" loading="lazy" style="height:200px">
-          <img src="assets/productos/ghk100.webp" alt="" loading="lazy">
-          <img src="assets/productos/tesa.webp" alt="" loading="lazy" style="height:200px">
+          <img src="assets/productos/nad.webp" width="400" height="900" alt="" loading="lazy" style="height:200px">
+          <img src="assets/productos/ghk100.webp" width="400" height="900" alt="" loading="lazy">
+          <img src="assets/productos/tesa.webp" width="400" height="900" alt="" loading="lazy" style="height:200px">
         </div>
       </div>
     </div>
@@ -138,12 +158,16 @@
   <div class="wrap">
     <div class="top">
       <div>
-        <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 42V22l16 20V22" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linejoin="round"/></svg>NEXORA LABS</div>
+        <div class="brand"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 2 58 17v30L32 62 6 47V17Z"/><g class="n"><rect x="20" y="20" width="5" height="24"/><rect x="39" y="20" width="5" height="24"/><path d="M25 20h5.2l8.8 17.5V44h-.2L25 26.5Z"/></g></svg>NEXORA LABS</div>
         <p style="margin-top:14px;max-width:34ch">Péptidos de alta pureza. Ciencia · Salud · Una mejor versión de ti.</p>
       </div>
-      <nav aria-label="Pie"><a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#" class="wa" data-msg="Hola Nexora, quiero hacer una consulta.">WhatsApp</a></nav>
+      <nav aria-label="Pie"><a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#" class="wa" target="_blank" rel="noopener" data-msg="Hola Nexora, quiero hacer una consulta.">WhatsApp</a></nav>
     </div>
-    <div class="bottom"><span>© <span id="y"></span> Nexora Labs</span><span>Ciencia real. Resultados reales.</span></div>
+    <div class="legal">
+      <p><b>Aviso.</b> La información de esta web es orientativa y no reemplaza la consulta con un profesional de la salud. Consultá a tu médico antes de usar cualquier producto.</p>
+      <p><b>Privacidad.</b> No usamos formularios ni guardamos tus datos: tu pedido queda solo en tu navegador hasta que lo enviás por WhatsApp.</p>
+    </div>
+    <div class="bottom"><span>© <span id="y"></span> Nexora Labs</span><span>Atención, pagos y entregas por WhatsApp</span></div>
   </div>
 </footer>
 
@@ -181,9 +205,14 @@
     <a class="btn btn-dark" id="bagSend" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
       Enviar pedido por WhatsApp</a>
+    <p class="sent" id="bagSent">¿Ya enviaste el mensaje? Podés vaciar el pedido.</p>
     <button class="clear" id="bagClear">Vaciar pedido</button>
   </div>
 </dialog>
+
+<a class="fab wa" id="fab" href="#" target="_blank" rel="noopener" data-msg="Hola Nexora, tengo una consulta." aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
+</a>
 
 <div class="bar" id="bar" role="region" aria-label="Resumen del pedido">
   <span class="s" id="barText"></span>
