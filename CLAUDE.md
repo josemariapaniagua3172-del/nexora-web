@@ -20,6 +20,5 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 
 ## Pendientes / dudas abiertas
 - Vista previa al compartir (Open Graph + imagen 1200×630): hacerla cuando haya URL final publicada.
-- NAD+: catálogo dice 1000 mg (Bs 900), un anuncio viejo decía 500 mg.
 - Productos no incluidos: GHK-CU 70 mg (línea en inglés, sin precio), KLOW80 + KPV.
 - No ayudar a evadir las políticas de anuncios de Meta (el usuario lo pidió antes y se rechazó).
