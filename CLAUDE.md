@@ -19,6 +19,6 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 - Commits chicos y descriptivos en español después de cada mejora que el usuario apruebe.
 
 ## Pendientes / dudas abiertas
-- Vista previa al compartir (Open Graph + imagen 1200×630): hacerla cuando haya URL final publicada.
+- Publicado en https://nexoratienda.netlify.app (Netlify, autodeploy desde GitHub josemariapaniagua3172-del/nexora-web, rama main). Si cambia el dominio, actualizar canonical/og:url/og:image en index.html, robots.txt y sitemap.xml. Vista previa al compartir: og-image.jpg (1200×630).
 - Productos no incluidos: GHK-CU 70 mg (línea en inglés, sin precio), KLOW80 + KPV.
 - No ayudar a evadir las políticas de anuncios de Meta (el usuario lo pidió antes y se rechazó).
