@@ -1,0 +1,158 @@
+/* Nexora Labs — lógica de la web (catálogo, detalle, pedido por WhatsApp).
+   Los datos están en js/productos.js */
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const byId = id => PRODUCTS.find(p => p.id === id);
+const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const bs = n => `<small>Bs</small>${fmt(n)}`;
+const wa = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const plus = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>';
+const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>';
+
+// ---------- Pedido (se guarda en este navegador) ----------
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem("nexora_cart") || "{}") || {}; } catch (e) { cart = {}; }
+for (const id in cart) if (!byId(id) || !(cart[id] > 0)) delete cart[id];
+const save = () => { try { localStorage.setItem("nexora_cart", JSON.stringify(cart)); } catch (e) {} };
+const items = () => Object.entries(cart).map(([id, q]) => ({ p: byId(id), q }));
+const count = () => items().reduce((a, x) => a + x.q, 0);
+const total = () => items().reduce((a, x) => a + x.q * x.p.price, 0);
+
+function orderMessage() {
+  const lines = items().map(({p, q}) => `• ${q} × ${p.name} (${p.sub}, ${p.mg}) — Bs ${fmt(q * p.price)}`);
+  const name = $("#fName").value.trim(), note = $("#fNote").value.trim();
+  const out = ["Hola Nexora, quiero hacer este pedido:", "", ...lines, "", `Total: Bs ${fmt(total())}`];
+  if (name) out.push(`Nombre: ${name}`);
+  if (note) out.push(`Comentario: ${note}`);
+  return out.join("\n");
+}
+
+function setQty(id, q) {
+  if (q > 0) cart[id] = Math.min(q, 99); else delete cart[id];
+  save(); sync();
+}
+function add(id) {
+  setQty(id, (cart[id] || 0) + 1);
+  const b = $("#bagBtn"); b.classList.remove("bump"); void b.offsetWidth; b.classList.add("bump");
+}
+
+function sync() {
+  const n = count();
+  $("#bagBtn").classList.toggle("has", n > 0);
+  $("#bagCount").textContent = n;
+  $("#bar").classList.toggle("show", n > 0 && !$("#bag").open);
+  $("#barText").innerHTML = `<b>${n} ${n === 1 ? "producto" : "productos"}</b> · Bs ${fmt(total())}`;
+  $$("[data-add]").forEach(b => {
+    const q = cart[b.dataset.add] || 0;
+    b.classList.toggle("in", q > 0);
+    b.innerHTML = q > 0 ? `${check}<span class="t">${q}</span>` : plus;
+    b.setAttribute("aria-label", q > 0 ? `${byId(b.dataset.add).name}: ${q} en tu pedido. Agregar otro` : `Agregar ${byId(b.dataset.add).name} al pedido`);
+  });
+  const cur = $("#modal").dataset.id;
+  if (cur) {
+    const q = cart[cur] || 0;
+    $("#mAdd").innerHTML = q > 0 ? `${check} En tu pedido (${q}) · Agregar otro` : `${plus} Agregar al pedido`;
+  }
+  // bolsa
+  const list = $("#bagList");
+  if (!n) {
+    list.innerHTML = `<div class="bag-empty">Tu pedido está vacío.<br>Agregá productos desde el catálogo.</div>`;
+    $("#bagFoot").style.display = "none";
+  } else {
+    $("#bagFoot").style.display = "";
+    list.innerHTML = items().map(({p, q}) => `
+      <div class="bag-item">
+        <img src="assets/productos/${p.img}" alt="">
+        <div><b>${p.name}</b><div class="sub">${p.sub} · ${p.mg}</div>
+          <div class="step-q"><button data-dec="${p.id}" aria-label="Quitar uno">−</button><span>${q}</span><button data-inc="${p.id}" aria-label="Agregar uno">+</button></div></div>
+        <div><div class="lt">Bs ${fmt(q * p.price)}</div><button class="rm" data-rm="${p.id}">Quitar</button></div>
+      </div>`).join("");
+    $("#bagTotal").innerHTML = bs(total());
+  }
+  updateSend();
+}
+function updateSend() { if (count()) $("#bagSend").href = wa(orderMessage()); }
+
+// ---------- Render catálogo ----------
+// Frascos de la portada (ids de productos.js), de izquierda a derecha
+const lineupIds = ["nad","rt60","tr120","ghk100","klow80"].filter(byId), hs = [.62,.8,1,.8,.62];
+$("#lineup").innerHTML = lineupIds.map((id,i)=>
+  `<img src="assets/productos/${byId(id).img}" alt="" style="--h:calc(${hs[i]} * clamp(150px,36vw,470px));animation-delay:${.15+Math.abs(i-2)*.12}s;z-index:${3-Math.abs(i-2)}">`).join("");
+
+const chips = [["all","Todos"],...Object.entries(CATS)];
+$("#chips").innerHTML = chips.map(([k,v],i)=>`<button class="chip" data-f="${k}" aria-pressed="${i===0}">${v}</button>`).join("");
+$("#chips").addEventListener("click", e=>{
+  const b = e.target.closest(".chip"); if(!b) return;
+  $$(".chip").forEach(c=>c.setAttribute("aria-pressed", c===b));
+  $$(".card").forEach(c=>c.classList.toggle("hide", b.dataset.f!=="all" && c.dataset.cat!==b.dataset.f));
+});
+
+$("#grid").innerHTML = PRODUCTS.map(p=>`
+  <article class="card rv" data-cat="${p.cat}">
+    <button class="open" data-open="${p.id}" aria-label="Ver detalle de ${p.name}">
+      <div class="ph"><span class="tag">${CATS[p.cat]}</span><img src="assets/productos/${p.img}" alt="Frasco ${p.name} ${p.mg}" loading="lazy"></div>
+      <h3>${p.name}</h3><div class="sub">${p.sub} · ${p.mg}</div>
+    </button>
+    <div class="row"><span class="price">${bs(p.price)}</span><button class="add" data-add="${p.id}"></button></div>
+  </article>`).join("");
+
+$("#plist").innerHTML = PRODUCTS.map(p=>`
+  <div class="prow">
+    <span class="open" data-open="${p.id}">
+      <img src="assets/productos/${p.img}" alt="" loading="lazy">
+      <div><b>${p.name}</b><span class="m">${p.sub} · ${p.mg}</span></div>
+      <span class="c">${p.sub} · ${p.mg}</span>
+    </span>
+    <span class="price">${bs(p.price)}</span>
+    <button class="add" data-add="${p.id}"></button>
+  </div>`).join("");
+
+// ---------- Detalle ----------
+const modal = $("#modal"), bag = $("#bag");
+function openP(id){
+  const p = byId(id); if(!p) return;
+  modal.dataset.id = id;
+  $("#mImg").src = `assets/productos/${p.img}`; $("#mImg").alt = `Frasco ${p.name}`;
+  $("#mCat").textContent = CATS[p.cat]; $("#mName").textContent = p.name;
+  $("#mSub").textContent = `${p.sub} · ${p.mg}`; $("#mTag").textContent = p.tag;
+  $("#mList").innerHTML = p.b.map(x=>`<li>${esc(x)}</li>`).join("");
+  $("#mPrice").innerHTML = bs(p.price);
+  $("#mAsk").href = wa(`Hola Nexora, quiero consultar por ${p.name} (${p.sub}, ${p.mg}) — Bs ${fmt(p.price)}.`);
+  sync(); modal.showModal();
+}
+function openBag(){ if (modal.open) modal.close(); sync(); bag.showModal(); $("#bar").classList.remove("show"); }
+
+document.addEventListener("click", e=>{
+  const t = e.target;
+  const a = t.closest("[data-add]"); if (a) { add(a.dataset.add); return; }
+  const o = t.closest("[data-open]"); if (o) { openP(o.dataset.open); return; }
+  const inc = t.closest("[data-inc]"); if (inc) { setQty(inc.dataset.inc, (cart[inc.dataset.inc]||0)+1); return; }
+  const dec = t.closest("[data-dec]"); if (dec) { setQty(dec.dataset.dec, (cart[dec.dataset.dec]||0)-1); return; }
+  const rm = t.closest("[data-rm]"); if (rm) { setQty(rm.dataset.rm, 0); return; }
+  const c = t.closest("[data-close]"); if (c) { c.closest("dialog").close(); return; }
+  const w = t.closest("a.wa"); if (w) { e.preventDefault(); window.open(wa(w.dataset.msg), "_blank", "noopener"); }
+});
+$("#mAdd").onclick = () => add(modal.dataset.id);
+$("#bagBtn").onclick = openBag;
+$("#barBtn").onclick = openBag;
+$("#bagClear").onclick = () => { cart = {}; save(); sync(); };
+["#fName","#fNote"].forEach(s => $(s).addEventListener("input", updateSend));
+[modal, bag].forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  d.addEventListener("close", () => { delete d.dataset.id; sync(); });
+});
+
+// Menu móvil
+const sheet = $("#sheet"), mb = $("#menuBtn");
+mb.onclick = ()=>{ const o = sheet.classList.toggle("open"); mb.setAttribute("aria-expanded", o); };
+sheet.addEventListener("click", e=>{ if(e.target.tagName==="A") { sheet.classList.remove("open"); mb.setAttribute("aria-expanded", false); } });
+
+// Header + animaciones de entrada
+const hdr = $("header");
+addEventListener("scroll", ()=>hdr.classList.toggle("scrolled", scrollY>8), {passive:true});
+const io = new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); setTimeout(()=>en.target.style.transitionDelay="0ms",1000);} }), {threshold:.12});
+$$(".rv").forEach((el,i)=>{ el.style.transitionDelay = (el.classList.contains("card")? (i%4)*70 : 0)+"ms"; io.observe(el); });
+$("#y").textContent = new Date().getFullYear();
+sync();

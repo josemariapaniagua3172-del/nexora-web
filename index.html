@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexora Labs — Péptidos de alta pureza</title>
+<meta name="description" content="Nexora Labs. Péptidos liofilizados de alta pureza. Ciencia real, resultados reales.">
+<meta name="theme-color" content="#F6F5F1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 56 18v28L32 60 8 46V18z' fill='%23101317'/%3E%3Cpath d='M23 42V22l18 20V22' stroke='%23F6F5F1' stroke-width='4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Nexora Labs">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 42V22l16 20V22" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linejoin="round"/></svg>
+      NEXORA
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#comprar">Cómo comprar</a>
+    </nav>
+    <div class="nav-r">
+    <a class="btn btn-dark wa" href="#" data-msg="Hola Nexora, quiero hacer una consulta.">Consultar</a>
+    <button class="bag-btn" id="bagBtn" aria-label="Ver mi pedido">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="count" id="bagCount">0</span>
+    </button>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" id="menuBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="sheet">
+  <a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#comprar">Cómo comprar</a>
+  <a class="btn btn-dark wa" href="#" data-msg="Hola Nexora, quiero hacer una consulta.">Consultar por WhatsApp</a>
+</div>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Nexora Labs</div>
+      <h1>Péptidos de <em>alta pureza.</em></h1>
+      <p>Ciencia real. Resultados reales. Péptidos liofilizados con 99% de pureza y calidad premium.</p>
+      <div class="ctas">
+        <a href="#productos" class="btn btn-dark">Ver catálogo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <a href="#precios" class="btn btn-ghost">Lista de precios</a>
+      </div>
+    </div>
+    <div class="lineup" id="lineup" aria-hidden="true"></div>
+  </div>
+
+  <div class="trust">
+    <div class="wrap">
+      <div><b>99% pureza</b><span>Calidad premium</span></div>
+      <div><b>Liofilizados</b><span>Máxima estabilidad</span></div>
+      <div><b>Almacenamiento óptimo</b><span>Estabilidad y efectividad</span></div>
+      <div><b>Estándares internacionales</b><span>Tecnología avanzada</span></div>
+    </div>
+  </div>
+
+  <section id="productos">
+    <div class="wrap">
+      <div class="head rv">
+        <div><div class="eyebrow">Catálogo</div><h2>Productos</h2></div>
+        <div class="chips" role="group" aria-label="Filtrar por categoría" id="chips"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="calidad" class="quality">
+    <div class="wrap q-grid">
+      <div class="rv">
+        <div class="eyebrow">Calidad Nexora</div>
+        <h2>Ciencia para una vida mejor.</h2>
+        <p class="lead">Cada lote se produce bajo estándares internacionales y se liofiliza para conservar su estabilidad y efectividad.</p>
+        <ul class="q-list" style="margin-top:36px">
+          <li><span class="n">01</span><div><b>Pureza garantizada</b><span>Péptidos liofilizados de la más alta pureza.</span></div></li>
+          <li><span class="n">02</span><div><b>Tecnología avanzada</b><span>Fabricación con estándares internacionales de calidad.</span></div></li>
+          <li><span class="n">03</span><div><b>Almacenamiento óptimo</b><span>Liofilizados para máxima estabilidad y efectividad.</span></div></li>
+          <li><span class="n">04</span><div><b>Seguridad y confianza</b><span>Trazabilidad en cada lote.</span></div></li>
+        </ul>
+      </div>
+      <div class="q-visual rv">
+        <div class="badge"><b>99%</b><span>PUREZA</span></div>
+        <img src="assets/productos/klow80.webp" alt="Frasco KLOW80 de Nexora Labs" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="precios">
+    <div class="wrap">
+      <div class="head rv"><div><div class="eyebrow">Precios finales</div><h2>Lista de precios</h2></div></div>
+      <div class="plist rv" id="plist"></div>
+      <div class="pnote"><span class="eyebrow">99% pureza</span><span class="eyebrow">Precios en bolivianos</span></div>
+    </div>
+  </section>
+
+  <section id="comprar" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv"><div><div class="eyebrow">Simple y directo</div><h2>Cómo comprar</h2></div></div>
+      <div class="steps">
+        <div class="step rv"><div class="n">01</div><h3>Elegí tu producto</h3><p>Explorá el catálogo y mirá el detalle de cada péptido.</p></div>
+        <div class="step rv"><div class="n">02</div><h3>Escribinos</h3><p>Consultá por WhatsApp: te confirmamos stock, precio y entrega.</p></div>
+        <div class="step rv"><div class="n">03</div><h3>Recibilo</h3><p>Coordinamos el envío o la entrega de tu pedido.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta rv">
+        <div>
+          <div class="eyebrow">Tu mejor versión es ahora</div>
+          <h2>Disciplina hoy. Un mejor mañana.</h2>
+          <p>Escribinos y te asesoramos para elegir el producto indicado.</p>
+          <a class="btn wa" href="#" data-msg="Hola Nexora, quiero asesoramiento para elegir un producto.">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
+            Hablar por WhatsApp</a>
+        </div>
+        <div class="v" aria-hidden="true">
+          <img src="assets/productos/nad.webp" alt="" loading="lazy" style="height:200px">
+          <img src="assets/productos/ghk100.webp" alt="" loading="lazy">
+          <img src="assets/productos/tesa.webp" alt="" loading="lazy" style="height:200px">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 18v28L32 60 8 46V18z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 42V22l16 20V22" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linejoin="round"/></svg>NEXORA LABS</div>
+        <p style="margin-top:14px;max-width:34ch">Péptidos de alta pureza. Ciencia · Salud · Una mejor versión de ti.</p>
+      </div>
+      <nav aria-label="Pie"><a href="#productos">Productos</a><a href="#calidad">Calidad</a><a href="#precios">Precios</a><a href="#" class="wa" data-msg="Hola Nexora, quiero hacer una consulta.">WhatsApp</a></nav>
+    </div>
+    <div class="bottom"><span>© <span id="y"></span> Nexora Labs</span><span>Ciencia real. Resultados reales.</span></div>
+  </div>
+</footer>
+
+<dialog id="modal" aria-labelledby="mName">
+  <div class="panel">
+    <button class="close" aria-label="Cerrar" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="m-vis"><img id="mImg" alt=""></div>
+    <div class="m-body">
+      <div class="eyebrow" id="mCat"></div>
+      <h3 id="mName"></h3>
+      <div class="sub" id="mSub"></div>
+      <p class="tagline" id="mTag"></p>
+      <ul id="mList"></ul>
+      <div class="m-foot">
+        <div><div class="eyebrow" style="font-size:11px">Precio final</div><div class="price" id="mPrice"></div></div>
+        <div class="acts">
+          <button class="btn btn-dark" id="mAdd"></button>
+          <a class="alt" id="mAsk" target="_blank" rel="noopener">o consultar solo este producto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="bag" aria-labelledby="bagTitle">
+  <div class="bag-h">
+    <h3 id="bagTitle">Tu pedido</h3>
+    <button class="close" aria-label="Cerrar" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="bag-list" id="bagList"></div>
+  <div class="bag-f" id="bagFoot">
+    <div class="tot"><span class="eyebrow">Total</span><span class="price" id="bagTotal"></span></div>
+    <input class="field" id="fName" placeholder="Tu nombre (opcional)" autocomplete="name">
+    <input class="field" id="fNote" placeholder="Ciudad o comentario (opcional)">
+    <a class="btn btn-dark" id="bagSend" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
+      Enviar pedido por WhatsApp</a>
+    <button class="clear" id="bagClear">Vaciar pedido</button>
+  </div>
+</dialog>
+
+<div class="bar" id="bar" role="region" aria-label="Resumen del pedido">
+  <span class="s" id="barText"></span>
+  <button class="btn" id="barBtn">Ver pedido</button>
+</div>
+
+<script src="js/productos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
