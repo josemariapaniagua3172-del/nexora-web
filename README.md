@@ -13,6 +13,7 @@ nexora-web/
 ├── js/app.js             Lógica: catálogo, filtros, detalle, pedido y mensaje de WhatsApp
 ├── assets/productos/     Fotos de los frascos (.webp con fondo transparente)
 ├── assets/logo/          Logo: símbolo (SVG), horizontal claro/oscuro (PNG), foto de perfil 1080 (PNG)
+├── marketing/            Trabajo del agente de Meta: creativos, calendario, campañas (no se publica)
 ├── favicon.svg           Ícono de la pestaña
 └── apple-touch-icon.png  Ícono al guardar la web en el iPhone
 ```
@@ -53,3 +54,9 @@ El proyecto usa git: cada mejora queda guardada y se puede volver atrás.
 ```bash
 git -C ~/nexora-web log --oneline
 ```
+
+## Agente de Meta
+
+En una sesión de Claude Code abierta en esta carpeta, escribí `/meta` y pedí lo que necesites
+(crear Instagram, un calendario, un carrusel, revisar si algo se puede pautar…).
+Las instrucciones del agente están en `.claude/skills/meta/`.

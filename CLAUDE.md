@@ -13,6 +13,10 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 - Confianza: sección `#compra-segura` (fondo oscuro), garantías en hero (`.assure`), franja `.trust`, preguntas en `#ayuda`, opciones Entrega/Pago en el pedido (`NEGOCIO` en `productos.js`). Si cambian las condiciones, actualizar todos esos textos + og:description + og-image.jpg.
 - No inventar testimonios, cantidades de clientes ni garantías que el usuario no confirmó.
 
+## Marketing / Meta
+- Skill del proyecto `/meta` (`.claude/skills/meta/`): agente de Instagram, Facebook, WhatsApp Business y Meta Ads. Políticas por producto en `politicas.md` (la mayor parte del catálogo está en rojo para pauta).
+- Salidas de marketing en `marketing/` (oculta en Netlify).
+
 ## Convenciones
 - Mantener la estética minimalista: mucho aire, pocas palabras, un frasco protagonista, sin saturar.
 - Datos de productos solo en `js/productos.js`; nada hardcodeado en `app.js`.

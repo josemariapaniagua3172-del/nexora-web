@@ -23,6 +23,12 @@
   force = true
 
 [[redirects]]
+  from = "/marketing/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/.claude/*"
   to = "/404"
   status = 404
