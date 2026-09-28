@@ -9,6 +9,7 @@ const bs = n => `<small>Bs</small>${fmt(n)}`;
 const wa = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const plus = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>';
+const minus = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/></svg>';
 const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>';
 
 // ---------- Pedido (se guarda en este navegador) ----------
@@ -45,7 +46,10 @@ function renderSeg(el, key) {
 
 function setQty(id, q) {
   if (q > 0) cart[id] = Math.min(q, 99); else delete cart[id];
+  // al redibujar, el botón con foco se reemplaza: devolver el foco al mismo selector
+  const wrap = document.activeElement && document.activeElement.closest && document.activeElement.closest("[data-p]");
   save(); sync();
+  if (wrap) (wrap.querySelector("[data-inc]") || wrap.querySelector("[data-add]")).focus();
 }
 function add(id) {
   setQty(id, (cart[id] || 0) + 1);
@@ -58,19 +62,18 @@ function sync() {
   $("#bagCount").textContent = n;
   const showBar = n > 0 && !$("#bag").open;
   $("#bar").classList.toggle("show", showBar);
-  document.body.classList.toggle("has-bar", showBar || $("#bag").open);
+  document.body.classList.toggle("has-bar", showBar);
   $("#barText").innerHTML = `<b>${n} ${n === 1 ? "producto" : "productos"}</b> · Bs ${fmt(total())}`;
-  $$("[data-add]").forEach(b => {
-    const q = cart[b.dataset.add] || 0;
-    b.classList.toggle("in", q > 0);
-    b.innerHTML = q > 0 ? `${check}<span class="t">${q}</span>` : plus;
-    b.setAttribute("aria-label", q > 0 ? `${byId(b.dataset.add).name}: ${q} en tu pedido. Agregar otro` : `Agregar ${byId(b.dataset.add).name} al pedido`);
+  // Botón de cada producto: "+" si no está en el pedido, o "− cantidad +" si ya está
+  $$("[data-p]").forEach(w => {
+    const id = w.dataset.p, p = byId(id), q = cart[id] || 0, big = w.classList.contains("big");
+    w.classList.toggle("in", q > 0);
+    w.innerHTML = q > 0
+      ? `<button type="button" data-dec="${id}" aria-label="Quitar un ${p.name}">${minus}</button>`
+        + `<span aria-live="polite">${big ? `En tu pedido: ${q}` : q}</span>`
+        + `<button type="button" data-inc="${id}" aria-label="Agregar otro ${p.name}">${plus}</button>`
+      : `<button type="button" data-add="${id}" aria-label="Agregar ${p.name} al pedido">${plus}${big ? " Agregar al pedido" : ""}</button>`;
   });
-  const cur = $("#modal").dataset.id;
-  if (cur) {
-    const q = cart[cur] || 0;
-    $("#mAdd").innerHTML = q > 0 ? `${check} En tu pedido (${q}) · Agregar otro` : `${plus} Agregar al pedido`;
-  }
   // bolsa
   const list = $("#bagList");
   if (!n) {
@@ -113,7 +116,7 @@ $("#grid").innerHTML = PRODUCTS.map(p=>`
       <div class="ph"><span class="tag">${CATS[p.cat]}</span><img src="assets/productos/${p.img}" width="400" height="900" alt="Frasco ${p.name} ${p.mg}" loading="lazy"></div>
       <h3>${p.name}</h3><div class="sub">${p.sub} · ${p.mg}</div>
     </button>
-    <div class="row"><span class="price">${bs(p.price)}</span><button class="add" data-add="${p.id}"></button></div>
+    <div class="row"><span class="price">${bs(p.price)}</span><div class="add" data-p="${p.id}"></div></div>
   </article>`).join("");
 
 $("#plist").innerHTML = PRODUCTS.map(p=>`
@@ -122,7 +125,7 @@ $("#plist").innerHTML = PRODUCTS.map(p=>`
     <button class="pname" data-open="${p.id}" aria-label="Ver detalle de ${p.name}"><b>${p.name}</b><span class="m">${p.sub} · ${p.mg}</span></button>
     <span class="c" data-open="${p.id}">${p.sub} · ${p.mg}</span>
     <span class="price">${bs(p.price)}</span>
-    <button class="add" data-add="${p.id}"></button>
+    <div class="add" data-p="${p.id}"></div>
   </div>`).join("");
 
 // ---------- Detalle ----------
@@ -130,6 +133,7 @@ const modal = $("#modal"), bag = $("#bag");
 function openP(id){
   const p = byId(id); if(!p) return;
   modal.dataset.id = id;
+  $("#mAdd").dataset.p = id;
   $("#mImg").src = `assets/productos/${p.img}`; $("#mImg").alt = `Frasco ${p.name}`;
   $("#mCat").textContent = CATS[p.cat]; $("#mName").textContent = p.name;
   $("#mSub").textContent = `${p.sub} · ${p.mg}`; $("#mTag").textContent = p.tag;
@@ -144,14 +148,13 @@ document.addEventListener("click", e=>{
   const t = e.target;
   const a = t.closest("[data-add]"); if (a) { add(a.dataset.add); return; }
   const o = t.closest("[data-open]"); if (o) { openP(o.dataset.open); return; }
-  const inc = t.closest("[data-inc]"); if (inc) { setQty(inc.dataset.inc, (cart[inc.dataset.inc]||0)+1); return; }
+  const inc = t.closest("[data-inc]"); if (inc) { add(inc.dataset.inc); return; }
   const dec = t.closest("[data-dec]"); if (dec) { setQty(dec.dataset.dec, (cart[dec.dataset.dec]||0)-1); return; }
   const rm = t.closest("[data-rm]"); if (rm) { setQty(rm.dataset.rm, 0); return; }
   const sg = t.closest("[data-seg]");
   if (sg) { choice[sg.dataset.seg] = sg.textContent; try { localStorage.setItem("nexora_choice", JSON.stringify(choice)); } catch (e) {} sync(); return; }
   const c = t.closest("[data-close]"); if (c) { c.closest("dialog").close(); return; }
 });
-$("#mAdd").onclick = () => add(modal.dataset.id);
 $("#bagBtn").onclick = openBag;
 $("#barBtn").onclick = openBag;
 $("#bagClear").onclick = () => { cart = {}; save(); bag.classList.remove("was-sent"); sync(); };
