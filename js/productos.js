@@ -17,6 +17,15 @@
 // Número de WhatsApp: código de país + número, sin + ni espacios
 const WHATSAPP = "59157022195";
 
+// Datos del negocio: se usan en el pedido y el mensaje de WhatsApp.
+// Si cambia algo (por ejemplo, dejás de hacer delivery gratis), cambialo acá
+// y revisá también los textos de index.html (secciones "confianza" y "ayuda").
+const NEGOCIO = {
+  ciudad: "Santa Cruz",
+  entrega: ["Delivery gratis", "Retiro en persona"],
+  pago: ["Efectivo al recibir", "QR al recibir"],
+};
+
 // Categorías (filtros del catálogo). Clave: nombre visible.
 const CATS = { met:"Metabólico", rec:"Recuperación", est:"Estética", bien:"Bienestar" };
 // Productos, en el orden en que aparecen en la web.

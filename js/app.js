@@ -20,14 +20,27 @@ const items = () => Object.entries(cart).map(([id, q]) => ({ p: byId(id), q }));
 const count = () => items().reduce((a, x) => a + x.q, 0);
 const total = () => items().reduce((a, x) => a + x.q * x.p.price, 0);
 
+// Opciones elegidas en el pedido (entrega y pago), recordadas en este navegador
+let choice = { entrega: NEGOCIO.entrega[0], pago: NEGOCIO.pago[0] };
+try { Object.assign(choice, JSON.parse(localStorage.getItem("nexora_choice") || "{}")); } catch (e) {}
+if (!NEGOCIO.entrega.includes(choice.entrega)) choice.entrega = NEGOCIO.entrega[0];
+if (!NEGOCIO.pago.includes(choice.pago)) choice.pago = NEGOCIO.pago[0];
+
 function orderMessage() {
   const lines = items().map(({p, q}) => `• ${q} × ${p.name} (${p.sub}, ${p.mg}) — Bs ${fmt(q * p.price)}`);
   const name = $("#fName").value.trim(), note = $("#fNote").value.trim();
-  const out = ["Hola Nexora, quiero hacer este pedido:", "", ...lines, "", `Total: Bs ${fmt(total())}`];
+  const out = ["Hola Nexora, quiero hacer este pedido:", "", ...lines, "", `Total: Bs ${fmt(total())}`,
+    `Entrega: ${choice.entrega}${choice.entrega.startsWith("Delivery") ? ` (${NEGOCIO.ciudad})` : ""}`,
+    `Pago: ${choice.pago}`];
+  if (note) out.push(`Zona: ${note}`);
   if (name) out.push(`Nombre: ${name}`);
-  if (note) out.push(`Comentario: ${note}`);
-  out.push("", "¿Me confirman stock, forma de pago y entrega? Gracias.");
+  out.push("", "¿Me confirman disponibilidad y horario de entrega? Gracias.");
   return out.join("\n");
+}
+
+function renderSeg(el, key) {
+  el.innerHTML = NEGOCIO[key].map(v =>
+    `<button type="button" role="radio" aria-checked="${choice[key] === v}" data-seg="${key}">${v}</button>`).join("");
 }
 
 function setQty(id, q) {
@@ -74,6 +87,8 @@ function sync() {
       </div>`).join("");
     $("#bagTotal").innerHTML = bs(total());
   }
+  renderSeg($("#segEntrega"), "entrega");
+  renderSeg($("#segPago"), "pago");
   updateSend();
 }
 function updateSend() { if (count()) $("#bagSend").href = wa(orderMessage()); }
@@ -132,6 +147,8 @@ document.addEventListener("click", e=>{
   const inc = t.closest("[data-inc]"); if (inc) { setQty(inc.dataset.inc, (cart[inc.dataset.inc]||0)+1); return; }
   const dec = t.closest("[data-dec]"); if (dec) { setQty(dec.dataset.dec, (cart[dec.dataset.dec]||0)-1); return; }
   const rm = t.closest("[data-rm]"); if (rm) { setQty(rm.dataset.rm, 0); return; }
+  const sg = t.closest("[data-seg]");
+  if (sg) { choice[sg.dataset.seg] = sg.textContent; try { localStorage.setItem("nexora_choice", JSON.stringify(choice)); } catch (e) {} sync(); return; }
   const c = t.closest("[data-close]"); if (c) { c.closest("dialog").close(); return; }
 });
 $("#mAdd").onclick = () => add(modal.dataset.id);
