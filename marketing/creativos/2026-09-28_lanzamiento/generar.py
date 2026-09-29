@@ -95,8 +95,8 @@ POSTS = {
     '<div class="eyebrow" style="margin-top:50px">Paso 1</div><h1 style="font-size:104px;margin-top:22px">Escribinos por WhatsApp.</h1>'
     '<p class="s">O armá tu pedido en la web: el mensaje llega listo.</p></div>' + foot()),
  "post-02c_paso-2": ("light", brand() + '<div class="num">03 / 05</div><div class="body">' + ic("truck", 96, "#1F3A6E") +
-    '<div class="eyebrow" style="margin-top:50px">Paso 2</div><h1 style="font-size:104px;margin-top:22px">Te lo llevamos gratis.</h1>'
-    '<p class="s">A cualquier zona de Santa Cruz. Coordinamos día y horario.</p></div>' + foot()),
+    '<div class="eyebrow" style="margin-top:50px">Paso 2</div><h1 style="font-size:104px;margin-top:22px">Te lo llevamos.</h1>'
+    '<p class="s">Contamos con delivery en Santa Cruz. Coordinamos día y horario.</p></div>' + foot()),
  "post-02d_paso-3": ("light", brand() + '<div class="num">04 / 05</div><div class="body">' + ic("eye", 96, "#1F3A6E") +
     '<div class="eyebrow" style="margin-top:50px">Paso 3</div><h1 style="font-size:104px;margin-top:22px">Lo revisás.</h1>'
     '<p class="s">Con tranquilidad, en tus manos.</p></div>' + foot()),
@@ -106,10 +106,10 @@ POSTS = {
  # 03 — pago al recibir
  "post-03_pagas-al-recibir": ("dark", brand() + '<div class="body"><h1 style="font-size:150px">Pagás <em>al recibir.</em></h1>'
     '<p class="s">Efectivo o QR, en el momento de la entrega. No te pedimos adelantos.</p></div>' + foot("Nexora Labs", "Santa Cruz")),
- # 04 — delivery gratis
- "post-04_delivery-gratis": ("light", brand() +
+ # 04 — delivery
+ "post-04_delivery": ("light", brand() +
     '<div class="body">' + ic("truck", 110, "#1F3A6E") +
-    '<h1 style="font-size:128px;margin-top:46px">Delivery gratis <em>en toda Santa Cruz.</em></h1></div>' + foot("Sin costo", "Sin mínimo")),
+    '<h1 style="font-size:128px;margin-top:46px">Contamos <em>con delivery.</em></h1><p class="s">Te lo llevamos a tu zona en Santa Cruz.</p></div>' + foot()),
  # 05 — estilo de vida
  "post-05_disciplina": ("dark", brand() + '<div class="body"><h1 style="font-size:140px">Disciplina hoy.</h1>'
     '<h1 style="font-size:140px;margin-top:6px"><em>Un mejor mañana.</em></h1></div>' + foot("Nexora Labs", "Constancia")),
@@ -117,7 +117,7 @@ POSTS = {
  "post-06_revisas-antes": ("light", brand() + '<div class="body"><div class="eyebrow">Nuestro compromiso</div>'
     '<div class="list" style="margin-top:44px">'
     f'<div>{ic("hand",56,"#1F3A6E")}Pagás al recibir</div>'
-    f'<div>{ic("truck",56,"#1F3A6E")}Delivery gratis</div>'
+    f'<div>{ic("truck",56,"#1F3A6E")}Contamos con delivery</div>'
     f'<div>{ic("eye",56,"#1F3A6E")}Revisás antes de pagar</div>'
     f'<div>{ic("chat",56,"#1F3A6E")}Atención directa</div></div></div>' + foot()),
  # 07 — educativo: conservación (3 láminas)
@@ -157,5 +157,5 @@ if __name__ == "__main__":
            '<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">'
            f'<div style="display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 16px;border:1px solid #E4E1DA;border-radius:999px;background:#fff;font-size:24px;font-weight:600;margin-bottom:30px">{flag(36)}Empresa cruceña</div>'
            '<h1 style="font-size:92px">Pagás <em>al recibir.</em></h1>'
-           '<p class="s" style="font-size:32px;margin-top:22px;max-width:none">Delivery gratis en toda Santa Cruz · Atención por WhatsApp</p></div>')
+           '<p class="s" style="font-size:32px;margin-top:22px;max-width:none">Contamos con delivery en Santa Cruz · Atención por WhatsApp</p></div>')
     print("listo")

@@ -18,11 +18,11 @@
 const WHATSAPP = "59157022195";
 
 // Datos del negocio: se usan en el pedido y el mensaje de WhatsApp.
-// Si cambia algo (por ejemplo, dejás de hacer delivery gratis), cambialo acá
+// Si cambia algo (por ejemplo, las formas de pago), cambialo acá
 // y revisá también los textos de index.html (secciones "confianza" y "ayuda").
 const NEGOCIO = {
   ciudad: "Santa Cruz",
-  entrega: ["Delivery gratis", "Retiro en persona"],
+  entrega: ["Delivery", "Retiro en persona"],
   pago: ["Efectivo al recibir", "QR al recibir"],
 };
 

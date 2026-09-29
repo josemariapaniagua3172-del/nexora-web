@@ -10,7 +10,7 @@ Guiá al usuario en este orden. En cada paso: qué tocar, qué escribir y cómo 
 ## 1. Página de Facebook
 1. facebook.com/pages/create → Nombre: **Nexora Labs**. Categoría: elegir la más fiel a la actividad real.
 2. Foto de perfil: `nexora-perfil-1080.png`. Portada: generar una de 1640×624 con la estética de la web (pedírsela al agente).
-3. Descripción (≤255 caracteres), por ejemplo: "Nexora Labs · Santa Cruz. Pagás al recibir, delivery gratis y atención directa por WhatsApp."
+3. Descripción (≤255 caracteres), por ejemplo: "Nexora Labs · Santa Cruz. Pagás al recibir, contamos con delivery y atención directa por WhatsApp."
 4. Datos: web, WhatsApp, ciudad (Santa Cruz de la Sierra), horario (preguntar al usuario).
 5. Botón de acción: **Enviar mensaje de WhatsApp**.
 
@@ -20,7 +20,7 @@ Guiá al usuario en este orden. En cada paso: qué tocar, qué escribir y cómo 
 3. Foto: el mismo logo. Nombre: "Nexora Labs · Santa Cruz".
 4. Biografía (≤150 caracteres), por ejemplo:
    ```
-   Pagás al recibir · Delivery gratis en Santa Cruz 🇧🇴
+   Pagás al recibir · Contamos con delivery en Santa Cruz 🇧🇴
    Atención directa por WhatsApp
    👇 Catálogo y pedidos
    ```

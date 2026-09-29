@@ -1,7 +1,7 @@
 # Contenido y creatividades
 
 ## Pilares (rotar en el calendario)
-1. **Confianza (40%)** — cómo trabajamos: pago al recibir, delivery gratis, revisás antes de pagar, puntualidad, empaque, atención. Es el pilar que vende en Santa Cruz.
+1. **Confianza (40%)** — cómo trabajamos: pago al recibir, delivery, revisás antes de pagar, puntualidad, empaque, atención. Es el pilar que vende en Santa Cruz.
 2. **Estilo de vida (30%)** — disciplina, entrenamiento, descanso, alimentación, constancia. Sin productos ni promesas.
 3. **Educación responsable (20%)** — conservación y cuidado, qué es un liofilizado, por qué consultar a un profesional. Sin dosis ni resultados.
 4. **Comunidad (10%)** — preguntas frecuentes respondidas, encuestas en historias, agradecimientos (sin datos de clientes sin permiso).
@@ -28,7 +28,7 @@ Antes de cada pieza, pasar el checklist de `politicas.md`.
 **Confianza — carrusel "Cómo comprar sin riesgo"**
 1. "Comprar online no debería darte miedo."
 2. "Escribinos por WhatsApp."
-3. "Te lo llevamos gratis en Santa Cruz."
+3. "Te lo llevamos a tu zona en Santa Cruz."
 4. "Lo revisás."
 5. "Y recién ahí pagás. Efectivo o QR."
 Texto: "Así de simple. Sin adelantos, sin vueltas. Escribinos 👇 (link en la bio)"
