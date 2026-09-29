@@ -10,7 +10,7 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 - `assets/productos/*.webp`: frascos recortados con fondo transparente, ~900px de alto.
 - Logo: hexágono sólido con N en negativo (SVG inline `.mark` en header/footer; archivos en `assets/logo/`, `favicon.svg`, `apple-touch-icon.png`).
 - Negocio (confirmado por el usuario): Santa Cruz de la Sierra, Bolivia. Pagos: efectivo al recibir, QR al recibir, efectivo al retirar (contra entrega, sin adelantos). Entrega: delivery gratis en toda la ciudad o retiro en persona. Sin envíos a otras ciudades. Marca sin cara visible (no mostrar datos personales).
-- Confianza: sección `#compra-segura` (fondo oscuro), garantías en hero (`.assure`), franja `.trust`, preguntas en `#ayuda`, opciones Entrega/Pago en el pedido (`NEGOCIO` en `productos.js`). Si cambian las condiciones, actualizar todos esos textos + og:description + og-image.jpg.
+- Confianza: sección `#compra-segura` (fondo oscuro), garantías en hero (`.assure`, la primera es "Somos de Santa Cruz" con bandera cruceña SVG; el usuario NO quiere bandera en el pie de página), franja `.trust`, preguntas en `#ayuda`, opciones Entrega/Pago en el pedido (`NEGOCIO` en `productos.js`). Si cambian las condiciones, actualizar todos esos textos + og:description + og-image.jpg.
 - No inventar testimonios, cantidades de clientes ni garantías que el usuario no confirmó.
 
 ## Marketing / Meta

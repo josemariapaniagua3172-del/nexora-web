@@ -21,6 +21,14 @@ I = {  # íconos de línea (mismos que la web)
  "sun": '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
  "doc": '<path d="M7 3h7l5 5v13H7Z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
 }
+# Bandera cruceña (verde, blanco, verde), con borde sutil para que se vea sobre fondo claro u oscuro
+def flag(w=48):
+    return (f'<svg width="{w}" height="{round(w*2/3)}" viewBox="0 0 30 20" style="flex:none">'
+            '<rect width="30" height="20" rx="3" fill="#fff"/>'
+            '<path d="M3 0h24a3 3 0 0 1 3 3v3.67H0V3a3 3 0 0 1 3-3Z" fill="#00953B"/>'
+            '<path d="M0 13.33h30V17a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3Z" fill="#00953B"/>'
+            '<rect x=".5" y=".5" width="29" height="19" rx="2.5" fill="none" stroke="rgba(16,19,23,.16)"/></svg>')
+
 def ic(k, size=64, color="currentColor", sw=1.5):
     return (f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="{color}" '
             f'stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round">{I[k]}</svg>')
@@ -33,7 +41,9 @@ body{font-family:Manrope,sans-serif;-webkit-font-smoothing:antialiased;overflow:
 .brand{position:absolute;left:90px;top:84px;display:flex;align-items:center;gap:16px;font-weight:600;letter-spacing:.38em;font-size:24px}
 .brand .mk{width:44px;height:44px}
 .num{position:absolute;right:90px;top:92px;font-size:22px;letter-spacing:.2em;opacity:.55;font-weight:500}
-.foot{position:absolute;left:90px;right:90px;bottom:84px;display:flex;justify-content:space-between;font-size:22px;letter-spacing:.24em;font-weight:600;opacity:.6;text-transform:uppercase}
+.loc{display:inline-flex;align-items:center;gap:16px}
+.foot{align-items:center;position:absolute;left:90px;right:90px;bottom:84px;display:flex;justify-content:space-between;font-size:22px;letter-spacing:.24em;font-weight:600;text-transform:uppercase}
+.foot span{opacity:.6}.foot .loc{opacity:1}
 .body{position:absolute;left:90px;right:90px;top:50%;transform:translateY(-50%)}
 .eyebrow{font-size:24px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;opacity:.6}
 h1{font-weight:500;letter-spacing:-.035em;line-height:1.02}
@@ -54,7 +64,12 @@ def page(W, H, cls, inner):
             f'<style>{CSS}body{{width:{W}px;height:{H}px}}</style></head><body class="{cls}">{inner}</body></html>')
 
 def brand(): return f'<div class="brand">{MARK}NEXORA LABS</div>'
-def foot(l="Santa Cruz · Bolivia", r="Pagás al recibir"): return f'<div class="foot"><span>{l}</span><span>{r}</span></div>'
+def foot(l="Santa Cruz · Bolivia", r="Pagás al recibir"):
+    if l == "Santa Cruz · Bolivia": right = r
+    elif r == "Santa Cruz": right = l
+    else: right = f"{l} · {r}"
+    return (f'<div class="foot"><span class="loc">{flag()}<span>Santa Cruz · Bolivia</span></span>'
+            f'<span>{right}</span></div>')
 
 def render(name, W, H, cls, inner):
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False) as f:
@@ -140,6 +155,7 @@ if __name__ == "__main__":
     # portada: todo centrado, porque Facebook recorta los costados en el celular
     render("portada-facebook_1640x624", 1640, 624, "light",
            '<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">'
+           f'<div style="display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 16px;border:1px solid #E4E1DA;border-radius:999px;background:#fff;font-size:24px;font-weight:600;margin-bottom:30px">{flag(36)}Empresa cruceña</div>'
            '<h1 style="font-size:92px">Pagás <em>al recibir.</em></h1>'
            '<p class="s" style="font-size:32px;margin-top:22px;max-width:none">Delivery gratis en toda Santa Cruz · Atención por WhatsApp</p></div>')
     print("listo")

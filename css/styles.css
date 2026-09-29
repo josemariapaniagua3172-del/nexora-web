@@ -314,6 +314,7 @@ body.has-bar .fab{bottom:88px}
 .assure{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:14.5px;color:var(--ink);font-weight:500}
 .assure li{display:inline-flex;align-items:center;gap:8px}
 .assure svg{width:18px;height:18px;color:var(--accent)}
+.assure svg.flag{width:22px;height:15px}
 
 /* CONFIANZA — sección compra segura */
 .secure{background:var(--ink);color:#fff}
