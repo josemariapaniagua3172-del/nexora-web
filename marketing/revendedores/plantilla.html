@@ -172,7 +172,7 @@ const IMG = p => `../../assets/productos/${p.img}`;
 const brand = (txt="NEXORA") => `<div class="brand">${MARK}${txt}</div>`;
 const head = (right="") => `<div class="head">${brand()}<span class="pnum">${right}</span></div>`;
 const foot = (l, r) => `<div class="foot"><span>${l}</span><span>${r}</span></div>`;
-const who = (label="Pedidos y consultas") => `<div class="who">${label}<b>${R.nombre}</b><span>${WAICON}${R.telefono}</span></div>`;
+const who = (label="Pedidos y consultas") => `<div class="who">${label}<b${label ? "" : ' style="margin-top:0"'}>${R.nombre}</b><span>${WAICON}${R.telefono}</span></div>`;
 const contact = (label) => `<div class="contact">${R.qr ? `<div class="qr">${R.qr}</div>` : ""}${who(label)}</div>`;
 const pages = [];
 
@@ -190,7 +190,7 @@ function catalogo(){
     </div>
     <div class="archbg" style="width:150mm;height:100mm;bottom:58mm"></div>
     <div class="lineup">${lineup.map((p,i)=>`<img class="vial" src="${IMG(p)}" style="height:${hs[i]}mm">`).join("")}</div>
-    <div style="position:absolute;left:16mm;right:16mm;bottom:24mm;display:flex;justify-content:center">${contact("Tu asesor")}</div>
+    <div style="position:absolute;left:16mm;right:16mm;bottom:24mm;display:flex;justify-content:center">${contact("")}</div>
     ${foot("Ciencia real · Resultados reales", "nexoratienda.netlify.app")}
   </section>`);
 
@@ -214,7 +214,7 @@ function catalogo(){
     <div style="position:absolute;left:16mm;top:28mm"><div class="eyebrow">Precios en bolivianos</div><h2 style="font-size:30pt;margin-top:3mm">Lista de precios</h2></div>
     <div class="plist">${PRODUCTS.map(p => `
       <div class="r"><img src="${IMG(p)}"><div><b>${p.name}</b><div class="s">${p.sub} · ${p.mg}</div></div><span class="price">${bs(p.price)}</span></div>`).join("")}</div>
-    <div class="endbox"><div><div class="eyebrow">Hacé tu pedido</div><h3 style="margin-top:2mm">Escribime y te asesoro.</h3></div>${contact("Tu asesor")}</div>
+    <div class="endbox"><div><div class="eyebrow">Hacé tu pedido</div><h3 style="margin-top:2mm">Escribime y te asesoro.</h3></div>${contact("")}</div>
     ${foot("Nexora", "Péptidos de alta pureza")}
   </section>`);
 }
@@ -231,7 +231,7 @@ function fichas(){
     <div class="fcover-list" style="position:absolute;left:16mm;right:16mm;top:150mm">
       ${PRODUCTS.map((p,i)=>`<div style="display:flex;justify-content:space-between;padding:3.2mm 0;border-top:1px solid rgba(255,255,255,.14);font-size:11pt"><span><span style="color:#9CA2AB;font-size:8pt;letter-spacing:.14em;margin-right:6mm">${String(i+1).padStart(2,"0")}</span>${p.name}</span><span style="color:#9CA2AB">${p.sub} · ${p.mg}</span></div>`).join("")}
     </div>
-    <div style="position:absolute;left:16mm;bottom:26mm">${contact("Tu asesor")}</div>
+    <div style="position:absolute;left:16mm;bottom:26mm">${contact("")}</div>
     ${foot("Ciencia real · Resultados reales", R.nombre)}
   </section>`);
 
