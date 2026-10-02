@@ -16,6 +16,7 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 ## Marketing / Meta
 - Skill del proyecto `/meta` (`.claude/skills/meta/`): agente de Instagram, Facebook, WhatsApp Business y Meta Ads. Políticas por producto en `politicas.md` (la mayor parte del catálogo está en rojo para pauta).
 - Salidas de marketing en `marketing/` (oculta en Netlify).
+- PDF para revendedores: `marketing/revendedores/` (plantilla HTML → PDF con Chrome; `generar.py`, `revendedores.json`, `fichas.js`). Catálogo y guía de productos llevan el contacto del revendedor y SIN condiciones de pago/entrega (pedido del usuario). Precios = los de la web.
 
 ## Convenciones
 - Mantener la estética minimalista: mucho aire, pocas palabras, un frasco protagonista, sin saturar.

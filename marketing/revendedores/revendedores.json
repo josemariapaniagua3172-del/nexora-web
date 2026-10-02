@@ -1,0 +1,6 @@
+{
+  "_ayuda": "Agregá un bloque por revendedor. id: sin espacios ni acentos (nombre de la carpeta). telefono: con código de país.",
+  "revendedores": [
+    { "id": "nexora", "nombre": "Nexora Labs", "telefono": "+591 57022195" }
+  ]
+}

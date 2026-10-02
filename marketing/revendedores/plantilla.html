@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Nexora Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root{ --bg:#F6F5F1; --surface:#fff; --ink:#101317; --mute:#676B72; --line:#E4E1DA; --arch:#ECEAE4; --accent:#1F3A6E; --wa:#25D366; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ background:#d9d6cf; }
+  body{ font-family:Manrope, "Avenir Next", sans-serif; color:var(--ink); -webkit-font-smoothing:antialiased;
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page{ width:210mm; height:297mm; background:var(--bg); position:relative; overflow:hidden; page-break-after:always; margin:0 auto; }
+  @media screen{ .page{ margin:10mm auto; box-shadow:0 10px 40px rgba(0,0,0,.15); } }
+  .page.dark{ background:var(--ink); color:#F6F5F1; }
+
+  /* marca */
+  .brand{ display:flex; align-items:center; gap:3mm; font-weight:600; letter-spacing:.38em; font-size:9pt; }
+  .mark{ width:7mm; height:7mm; flex:none; }
+  .mark .h{ fill:var(--ink); } .mark .n{ fill:var(--bg); }
+  .dark .mark .h{ fill:#F6F5F1; } .dark .mark .n{ fill:var(--ink); }
+  .head{ position:absolute; left:16mm; right:16mm; top:14mm; display:flex; justify-content:space-between; align-items:center; }
+  .pnum{ font-size:8pt; letter-spacing:.2em; color:var(--mute); font-weight:500; }
+  .foot{ position:absolute; left:16mm; right:16mm; bottom:12mm; display:flex; justify-content:space-between; align-items:center;
+         font-size:7.5pt; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); font-weight:600; border-top:1px solid var(--line); padding-top:4mm; }
+  .dark .foot{ border-color:rgba(255,255,255,.14); color:#9CA2AB; }
+
+  .eyebrow{ font-size:8pt; letter-spacing:.32em; text-transform:uppercase; color:var(--mute); font-weight:600; }
+  .dark .eyebrow{ color:#9CA2AB; }
+  h1,h2,h3{ font-weight:500; letter-spacing:-.025em; line-height:1.04; }
+  em{ font-style:normal; font-weight:300; color:var(--mute); }
+  .dark em{ color:#9CA2AB; }
+  .price{ font-weight:600; letter-spacing:-.01em; white-space:nowrap; }
+  .price small{ font-size:.5em; color:var(--mute); font-weight:600; margin-right:1.2mm; letter-spacing:.06em; }
+  .vial{ filter:drop-shadow(0 4mm 3.5mm rgba(16,19,23,.24)); }
+  .archbg{ position:absolute; left:50%; transform:translateX(-50%); bottom:0; border-radius:999px 999px 0 0;
+           background:linear-gradient(180deg,var(--arch),rgba(236,234,228,0)); }
+
+  /* contacto del revendedor */
+  .contact{ display:flex; align-items:center; gap:6mm; }
+  .qr{ width:30mm; height:30mm; background:#fff; border-radius:3mm; padding:2mm; flex:none; border:1px solid var(--line); }
+  .qr svg{ width:100%; height:100%; display:block; }
+  .who{ font-size:9pt; color:var(--mute); }
+  .who b{ display:block; font-size:15pt; color:var(--ink); font-weight:600; letter-spacing:-.01em; margin-top:1mm; }
+  .who span{ display:inline-flex; align-items:center; gap:2mm; font-size:11pt; color:var(--ink); font-weight:500; margin-top:1.5mm; }
+  .who span svg{ width:4.5mm; height:4.5mm; color:var(--wa); }
+  .dark .who{ color:#9CA2AB; } .dark .who b, .dark .who span{ color:#F6F5F1; }
+
+  /* ---------- catálogo ---------- */
+  .cover h1{ font-size:62pt; }
+  .lineup{ position:absolute; left:0; right:0; bottom:62mm; display:flex; justify-content:center; align-items:flex-end; gap:2mm; }
+  .grid{ position:absolute; left:16mm; right:16mm; top:32mm; bottom:28mm; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6mm; }
+  .card{ background:var(--surface); border:1px solid var(--line); border-radius:5mm; padding:5mm; display:flex; flex-direction:column; overflow:hidden; }
+  .card .ph{ position:relative; height:52mm; border-radius:3.5mm; background:var(--bg); display:flex; justify-content:center; align-items:flex-end; overflow:hidden; }
+  .card .ph .archbg{ width:58%; height:82%; }
+  .card .ph img{ position:relative; height:44mm; margin-bottom:3mm; }
+  .card .tag{ position:absolute; top:3mm; left:3mm; font-size:6.5pt; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--mute); background:rgba(255,255,255,.85); padding:1.2mm 2.4mm; border-radius:99px; }
+  .card h3{ font-size:17pt; font-weight:600; margin-top:4mm; }
+  .card .sub{ font-size:8.5pt; color:var(--mute); margin-top:.8mm; }
+  .card ul{ list-style:none; margin-top:3mm; font-size:8.5pt; }
+  .card li{ padding:1.4mm 0; border-top:1px solid var(--line); display:flex; gap:2mm; }
+  .card li::before{ content:""; width:1.4mm; height:1.4mm; border-radius:50%; background:var(--accent); margin-top:1.5mm; flex:none; }
+  .card .row{ margin-top:auto; padding-top:3mm; border-top:1px solid var(--ink); display:flex; justify-content:space-between; align-items:baseline; }
+  .card .row .l{ font-size:7pt; letter-spacing:.24em; color:var(--mute); font-weight:600; }
+  .card .row .price{ font-size:17pt; }
+
+  .plist{ position:absolute; left:16mm; right:16mm; top:44mm; }
+  .plist .r{ display:grid; grid-template-columns:14mm 1fr auto; align-items:center; gap:5mm; height:15.5mm; border-top:1px solid var(--line); }
+  .plist .r:last-child{ border-bottom:1px solid var(--line); }
+  .plist img{ height:12.5mm; margin:0 auto; filter:drop-shadow(0 1.5mm 1.5mm rgba(16,19,23,.2)); }
+  .plist b{ font-size:12.5pt; font-weight:600; } .plist .s{ font-size:8pt; color:var(--mute); }
+  .plist .price{ font-size:14pt; }
+  .endbox{ position:absolute; left:16mm; right:16mm; bottom:28mm; background:var(--ink); color:#F6F5F1; border-radius:5mm; padding:7mm 8mm; display:flex; justify-content:space-between; align-items:center; gap:8mm; }
+  .endbox h3{ font-size:19pt; }
+  .endbox .who{ color:#9CA2AB; } .endbox .who b, .endbox .who span{ color:#F6F5F1; }
+
+  /* ---------- fichas ---------- */
+  .ficha .top{ position:absolute; left:0; right:0; top:26mm; height:96mm; display:grid; grid-template-columns:78mm 1fr; }
+  .ficha .vis{ position:relative; display:flex; justify-content:center; align-items:flex-end; }
+  .ficha .vis .archbg{ width:62mm; height:86mm; }
+  .ficha .vis img{ position:relative; height:82mm; margin-bottom:4mm; }
+  .ficha .ttl{ padding:6mm 16mm 0 4mm; display:flex; flex-direction:column; justify-content:center; }
+  .ficha .ttl h1{ font-size:40pt; font-weight:600; margin-top:3mm; }
+  .ficha .ttl .sub{ font-size:11pt; color:var(--mute); margin-top:2mm; }
+  .ficha .ttl .tagline{ font-size:11pt; margin-top:6mm; line-height:1.45; }
+  .ficha .ttl .price{ font-size:22pt; margin-top:6mm; }
+  .ficha .body{ position:absolute; left:16mm; right:16mm; top:130mm; bottom:28mm; display:grid; grid-template-columns:1.15fr 1fr; gap:9mm; }
+  .blk + .blk{ margin-top:6mm; }
+  .blk h4{ font-size:7.5pt; letter-spacing:.28em; text-transform:uppercase; color:var(--mute); font-weight:600; padding-bottom:2mm; border-bottom:1px solid var(--ink); margin-bottom:2.5mm; }
+  .blk p{ font-size:9.5pt; line-height:1.55; }
+  .blk ul{ list-style:none; font-size:9.5pt; }
+  .blk li{ padding:1.9mm 0; border-bottom:1px solid var(--line); display:flex; gap:2.5mm; }
+  .blk li::before{ content:""; width:1.5mm; height:1.5mm; border-radius:50%; background:var(--accent); margin-top:1.8mm; flex:none; }
+  .spec{ display:grid; grid-template-columns:auto 1fr; gap:1.6mm 5mm; font-size:9pt; }
+  .spec dt{ color:var(--mute); } .spec dd{ font-weight:500; }
+  .labbox{ background:var(--surface); border:1px solid var(--line); border-radius:3.5mm; padding:4mm; }
+  .labbox .q{ font-size:8pt; color:var(--mute); }
+  .labbox ul li{ border-bottom:0; padding:.8mm 0; font-size:9pt; }
+  .ficha .cta{ position:absolute; left:16mm; right:16mm; bottom:24mm; }
+
+  /* ---------- guía ---------- */
+  .gbody{ position:absolute; left:16mm; right:16mm; top:32mm; bottom:28mm; }
+  .gbody h2{ font-size:28pt; margin:3mm 0 7mm; }
+  .steps{ display:grid; gap:4mm; }
+  .step{ display:grid; grid-template-columns:12mm 1fr; gap:3mm; padding:4.5mm 0; border-top:1px solid var(--line); }
+  .step .n{ font-size:8pt; font-weight:600; color:var(--mute); letter-spacing:.14em; padding-top:1mm; }
+  .step b{ font-size:12pt; font-weight:600; } .step p{ font-size:9.5pt; color:var(--mute); margin-top:1mm; line-height:1.5; }
+  .fill{ display:inline-block; min-width:40mm; border-bottom:1px dashed var(--mute); color:var(--accent); font-weight:600; }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:8mm; }
+  .yes h4{ color:#1B7A3E; border-color:#1B7A3E; } .no h4{ color:#A3281F; border-color:#A3281F; }
+  .yes li::before{ background:#1B7A3E; } .no li::before{ background:#A3281F; }
+  .msg{ background:var(--surface); border:1px solid var(--line); border-radius:3.5mm; padding:4mm 5mm; font-size:9.3pt; line-height:1.55; white-space:pre-line; }
+  .msg + .msg{ margin-top:4mm; }
+  .msg .t{ display:block; font-size:7.5pt; letter-spacing:.2em; text-transform:uppercase; color:var(--mute); font-weight:600; margin-bottom:1.5mm; white-space:normal; }
+  table.sum{ width:100%; border-collapse:collapse; font-size:9pt; }
+  table.sum th{ text-align:left; font-size:7pt; letter-spacing:.22em; text-transform:uppercase; color:var(--mute); font-weight:600; padding:2mm 0; border-bottom:1px solid var(--ink); }
+  table.sum td{ padding:2.6mm 2mm 2.6mm 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.sum td b{ font-weight:600; }
+  .legal{ font-size:8pt; color:var(--mute); line-height:1.5; }
+
+  /* ---------- ajustes de legibilidad (se lee en el celular) ---------- */
+  .plist{ top:56mm; }
+  .fcover-list{ top:134mm !important; }
+  .fcover-list > div{ padding:2.6mm 0 !important; }
+  .ficha .top{ height:108mm; }
+  .ficha .vis .archbg{ width:68mm; height:98mm; }
+  .ficha .vis img{ height:94mm; }
+  .ficha .ttl h1{ font-size:46pt; }
+  .ficha .ttl .sub{ font-size:12.5pt; }
+  .ficha .ttl .tagline{ font-size:12.5pt; }
+  .ficha .ttl .price{ font-size:28pt; }
+  .ficha .body{ top:144mm; }
+  .blk + .blk{ margin-top:7mm; }
+  .blk h4{ font-size:8.5pt; }
+  .blk p, .blk ul{ font-size:11pt; }
+  .blk li{ padding:2.3mm 0; }
+  .blk li::before{ margin-top:2.2mm; }
+  .spec{ font-size:10.5pt; }
+  .labbox .q{ font-size:9pt; } .labbox ul li{ font-size:10.5pt; padding:1mm 0; }
+  .gbody h2{ font-size:32pt; }
+  .step{ padding:6mm 0; } .step b{ font-size:14pt; } .step p{ font-size:11pt; }
+  .two .blk + .blk{ margin-top:0; }
+  table.sum{ font-size:10.5pt; table-layout:fixed; }
+  table.sum th{ font-size:7.5pt; }
+  table.sum th:nth-child(1){ width:30%; } table.sum th:nth-child(2){ width:20%; } table.sum th:nth-child(4){ width:16%; }
+  .msg{ font-size:11pt; }
+  .msg + .msg{ margin-top:5mm; }
+</style>
+</head>
+<body>
+<script src="../../js/productos.js"></script>
+<script src="fichas.js"></script>
+<!--RESELLER-->
+<script>
+/* Datos del revendedor (los inyecta generar.py). Valores por defecto: Nexora. */
+const R = window.RESELLER || { nombre:"Nexora Labs", telefono:"+591 57022195", qr:"" };
+const DOC = window.DOC || new URLSearchParams(location.search).get("doc") || "catalogo";
+
+const MARK = '<svg class="mark" viewBox="0 0 64 64"><path class="h" d="M32 2 58 17v30L32 62 6 47V17Z"/><g class="n"><rect x="20" y="20" width="5" height="24"/><rect x="39" y="20" width="5" height="24"/><path d="M25 20h5.2l8.8 17.5V44h-.2L25 26.5Z"/></g></svg>';
+const WAICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>';
+const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const bs = n => `<small>Bs</small>${fmt(n)}`;
+const IMG = p => `../../assets/productos/${p.img}`;
+const brand = (txt="NEXORA LABS") => `<div class="brand">${MARK}${txt}</div>`;
+const head = (right="") => `<div class="head">${brand()}<span class="pnum">${right}</span></div>`;
+const foot = (l, r) => `<div class="foot"><span>${l}</span><span>${r}</span></div>`;
+const who = (label="Pedidos y consultas") => `<div class="who">${label}<b>${R.nombre}</b><span>${WAICON}${R.telefono}</span></div>`;
+const contact = (label) => `<div class="contact">${R.qr ? `<div class="qr">${R.qr}</div>` : ""}${who(label)}</div>`;
+const pages = [];
+
+/* ================= CATÁLOGO ================= */
+function catalogo(){
+  const lineup = ["nad","rt60","tr120","ghk100","klow80"].map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+  const hs = [42, 54, 66, 54, 42];
+  pages.push(`<section class="page cover">
+    ${head("CATÁLOGO 2026")}
+    <div style="position:absolute;left:16mm;right:16mm;top:52mm;text-align:center">
+      <div class="eyebrow">Nexora Labs</div>
+      <h1 style="margin-top:8mm">Catálogo</h1>
+      <p style="font-size:13pt;color:var(--mute);margin-top:6mm">Péptidos de alta pureza</p>
+      <div style="width:14mm;height:.6mm;background:var(--accent);margin:9mm auto 0"></div>
+    </div>
+    <div class="archbg" style="width:150mm;height:100mm;bottom:58mm"></div>
+    <div class="lineup">${lineup.map((p,i)=>`<img class="vial" src="${IMG(p)}" style="height:${hs[i]}mm">`).join("")}</div>
+    <div style="position:absolute;left:16mm;right:16mm;bottom:24mm;display:flex;justify-content:center">${contact("Tu asesor")}</div>
+    ${foot("Ciencia real · Resultados reales", "nexoratienda.netlify.app")}
+  </section>`);
+
+  for (let i = 0; i < PRODUCTS.length; i += 4) {
+    const chunk = PRODUCTS.slice(i, i + 4);
+    pages.push(`<section class="page">
+      ${head(`PRODUCTOS · ${String(i/4+1).padStart(2,"0")}`)}
+      <div class="grid">${chunk.map(p => `
+        <div class="card">
+          <div class="ph"><span class="tag">${CATS[p.cat]}</span><div class="archbg"></div><img class="vial" src="${IMG(p)}"></div>
+          <h3>${p.name}</h3><div class="sub">${p.sub} · ${p.mg}</div>
+          <ul>${p.b.slice(0,3).map(x=>`<li>${x}</li>`).join("")}</ul>
+          <div class="row"><span class="l">PRECIO</span><span class="price">${bs(p.price)}</span></div>
+        </div>`).join("")}</div>
+      ${foot(R.nombre, R.telefono)}
+    </section>`);
+  }
+
+  pages.push(`<section class="page">
+    ${head("LISTA DE PRECIOS")}
+    <div style="position:absolute;left:16mm;top:28mm"><div class="eyebrow">Precios en bolivianos</div><h2 style="font-size:30pt;margin-top:3mm">Lista de precios</h2></div>
+    <div class="plist">${PRODUCTS.map(p => `
+      <div class="r"><img src="${IMG(p)}"><div><b>${p.name}</b><div class="s">${p.sub} · ${p.mg}</div></div><span class="price">${bs(p.price)}</span></div>`).join("")}</div>
+    <div class="endbox"><div><div class="eyebrow">Hacé tu pedido</div><h3 style="margin-top:2mm">Escribime y te asesoro.</h3></div>${contact("Tu asesor")}</div>
+    ${foot("Nexora Labs", "Péptidos de alta pureza")}
+  </section>`);
+}
+
+/* ================= FICHAS ================= */
+function fichas(){
+  pages.push(`<section class="page dark">
+    ${head("GUÍA DE PRODUCTOS")}
+    <div style="position:absolute;left:16mm;right:16mm;top:42mm">
+      <div class="eyebrow">Nexora Labs</div>
+      <h1 style="font-size:52pt;margin-top:8mm">Conocé cada <em>producto.</em></h1>
+      <p style="font-size:12pt;color:#B5BAC1;margin-top:8mm;max-width:120mm;line-height:1.5">Qué es cada péptido, para qué se usa, sus beneficios y su presentación.</p>
+    </div>
+    <div class="fcover-list" style="position:absolute;left:16mm;right:16mm;top:150mm">
+      ${PRODUCTS.map((p,i)=>`<div style="display:flex;justify-content:space-between;padding:3.2mm 0;border-top:1px solid rgba(255,255,255,.14);font-size:11pt"><span><span style="color:#9CA2AB;font-size:8pt;letter-spacing:.14em;margin-right:6mm">${String(i+1).padStart(2,"0")}</span>${p.name}</span><span style="color:#9CA2AB">${p.sub} · ${p.mg}</span></div>`).join("")}
+    </div>
+    <div style="position:absolute;left:16mm;bottom:26mm">${contact("Tu asesor")}</div>
+    ${foot("Ciencia real · Resultados reales", R.nombre)}
+  </section>`);
+
+  PRODUCTS.forEach((p, i) => {
+    const f = FICHAS[p.id] || {};
+    pages.push(`<section class="page ficha">
+      ${head(`${String(i+1).padStart(2,"0")} / ${String(PRODUCTS.length).padStart(2,"0")}`)}
+      <div class="top">
+        <div class="vis"><div class="archbg"></div><img class="vial" src="${IMG(p)}"></div>
+        <div class="ttl">
+          <div class="eyebrow">${CATS[p.cat]}</div>
+          <h1>${p.name}</h1>
+          <div class="sub">${p.sub} · ${p.mg}</div>
+          <p class="tagline">${p.tag}</p>
+          <div class="price">${bs(p.price)}</div>
+        </div>
+      </div>
+      <div class="body">
+        <div>
+          <div class="blk"><h4>Qué es</h4><p>${f.que || ""}</p></div>
+          <div class="blk"><h4>Beneficios</h4><ul>${p.b.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+        </div>
+        <div>
+          <div class="blk"><h4>Presentación</h4><dl class="spec">
+            <dt>Contenido</dt><dd>${p.mg}</dd>
+            <dt>Formato</dt><dd>Polvo liofilizado</dd>
+            <dt>Envase</dt><dd>${f.vial || "—"}</dd>
+          </dl></div>
+          <div class="blk"><h4>Conservación</h4><p>Refrigerado entre 2 y 8 °C. No congelar. Proteger de la luz. Mantener el frasco bien cerrado.</p></div>
+          ${f.lab ? `<div class="blk"><h4>Análisis de laboratorio</h4><div class="labbox"><div class="q">${f.lab.quien}</div><ul>${f.lab.datos.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>` : ""}
+          <div class="blk">${contact("Consultas y pedidos")}</div>
+        </div>
+      </div>
+      ${foot("Información orientativa · Consultá a un profesional de la salud", "Nexora Labs")}
+    </section>`);
+  });
+
+  pages.push(`<section class="page">
+    ${head("IMPORTANTE")}
+    <div class="gbody">
+      <div class="eyebrow">Antes de usar cualquier producto</div>
+      <h2>Información <em>importante.</em></h2>
+      <div class="blk"><p>La información de esta guía es orientativa y general. No reemplaza la consulta con un profesional de la salud, que es quien puede indicar si un producto es adecuado para vos.</p></div>
+      <div class="blk"><h4>Recomendaciones</h4><ul>
+        <li>Consultá a tu médico antes de comenzar, especialmente si tenés alguna condición de salud, tomás medicación, estás embarazada o en período de lactancia.</li>
+        <li>Respetá siempre las indicaciones de conservación del envase.</li>
+        <li>No uses un producto si el frasco llegó abierto, dañado o vencido.</li>
+        <li>Mantener fuera del alcance de niños.</li>
+      </ul></div>
+      <div class="blk" style="margin-top:14mm">${contact("¿Dudas? Escribime")}</div>
+    </div>
+    ${foot("Nexora Labs", "nexoratienda.netlify.app")}
+  </section>`);
+}
+
+/* ================= GUÍA DEL REVENDEDOR ================= */
+function guia(){
+  pages.push(`<section class="page dark">
+    ${head("USO INTERNO")}
+    <div style="position:absolute;left:16mm;right:16mm;top:80mm">
+      <div class="eyebrow">Nexora Labs</div>
+      <h1 style="font-size:50pt;margin-top:8mm">Guía para <em>revendedores.</em></h1>
+      <p style="font-size:12pt;color:#B5BAC1;margin-top:8mm;max-width:130mm;line-height:1.5">Cómo trabajar con Nexora, cómo presentar los productos y qué decir (y qué no) a tus clientes.</p>
+    </div>
+    ${foot("Documento interno · No compartir con clientes", "Nexora Labs")}
+  </section>`);
+
+  pages.push(`<section class="page">
+    ${head("01 · CÓMO FUNCIONA")}
+    <div class="gbody">
+      <div class="eyebrow">Paso a paso</div><h2>Cómo <em>funciona.</em></h2>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><div><b>Compartí tu catálogo</b><p>Mandá el PDF "Catálogo" con tu nombre y tu WhatsApp a tus contactos. Si alguien quiere saber más de un producto, mandale el PDF "Guía de productos".</p></div></div>
+        <div class="step"><span class="n">02</span><div><b>Respondé y asesorá</b><p>Contestá rápido y con honestidad. Si no sabés algo, consultanos antes de responder.</p></div></div>
+        <div class="step"><span class="n">03</span><div><b>Tomá el pedido</b><p>Anotá producto, cantidad, nombre del cliente y zona. Confirmá el total con los precios del catálogo.</p></div></div>
+        <div class="step"><span class="n">04</span><div><b>Pasanos el pedido</b><p>Envialo al WhatsApp de Nexora (+591 57022195) con el formato de la página 04.</p></div></div>
+        <div class="step"><span class="n">05</span><div><b>Entrega y cobro</b><p>Se coordina según tus condiciones (página 02).</p></div></div>
+      </div>
+    </div>
+    ${foot("Guía para revendedores", "Uso interno")}
+  </section>`);
+
+  pages.push(`<section class="page">
+    ${head("02 · TUS CONDICIONES")}
+    <div class="gbody">
+      <div class="eyebrow">A completar con Nexora</div><h2>Tus <em>condiciones.</em></h2>
+      <div class="steps">
+        <div class="step"><span class="n">A</span><div><b>Precio al cliente</b><p>Siempre el del catálogo. Es el mismo precio de la web: así el cliente confía y no hay diferencias entre revendedores.</p></div></div>
+        <div class="step"><span class="n">B</span><div><b>Tu ganancia</b><p>Comisión o precio de compra: <span class="fill">&nbsp;</span></p></div></div>
+        <div class="step"><span class="n">C</span><div><b>Cómo cobrás</b><p><span class="fill" style="min-width:120mm">&nbsp;</span></p></div></div>
+        <div class="step"><span class="n">D</span><div><b>Cómo se entrega</b><p><span class="fill" style="min-width:120mm">&nbsp;</span></p></div></div>
+        <div class="step"><span class="n">E</span><div><b>Cuándo cobrás tu ganancia</b><p><span class="fill" style="min-width:120mm">&nbsp;</span></p></div></div>
+      </div>
+    </div>
+    ${foot("Guía para revendedores", "Uso interno")}
+  </section>`);
+
+  pages.push(`<section class="page">
+    ${head("03 · LOS PRODUCTOS")}
+    <div class="gbody">
+      <div class="eyebrow">Resumen rápido</div><h2>Los <em>productos.</em></h2>
+      <table class="sum"><thead><tr><th>Producto</th><th>Presentación</th><th>En pocas palabras</th><th style="text-align:right">Precio</th></tr></thead><tbody>
+      ${PRODUCTS.map(p=>`<tr><td><b>${p.name}</b><br><span style="color:var(--mute)">${p.sub}</span></td><td>${p.mg}<br><span style="color:var(--mute)">${(FICHAS[p.id]||{}).vial||""}</span></td><td>${p.b.slice(0,2).join(" · ")}</td><td style="text-align:right" class="price">Bs ${fmt(p.price)}</td></tr>`).join("")}
+      </tbody></table>
+    </div>
+    ${foot("Guía para revendedores", "Uso interno")}
+  </section>`);
+
+  pages.push(`<section class="page">
+    ${head("04 · QUÉ DECIR")}
+    <div class="gbody">
+      <div class="eyebrow">Para cuidar a tus clientes y a la marca</div><h2>Qué decir <em>y qué no.</em></h2>
+      <div class="two">
+        <div class="blk yes"><h4>Sí</h4><ul>
+          <li>Contar qué es cada producto y sus beneficios, como figuran en la Guía de productos.</li>
+          <li>Recomendar siempre consultar con un profesional de la salud.</li>
+          <li>Dar los precios del catálogo.</li>
+          <li>Explicar la conservación: frío, sin congelar, lejos de la luz.</li>
+          <li>Si no sabés una respuesta, decir "lo consulto y te confirmo".</li>
+        </ul></div>
+        <div class="blk no"><h4>No</h4><ul>
+          <li>Indicar dosis ni cómo aplicar un producto.</li>
+          <li>Prometer resultados ("vas a bajar X kilos", "te cura").</li>
+          <li>Decir "es 100% seguro" o "no tiene efectos".</li>
+          <li>Cambiar los precios del catálogo.</li>
+          <li>Publicar los productos con precio en Facebook, Instagram o Marketplace: pueden bloquearte la cuenta.</li>
+        </ul></div>
+      </div>
+      <div class="blk" style="margin-top:9mm"><h4>Formato para pasarnos un pedido</h4>
+        <div class="msg">PEDIDO — [tu nombre]
+Cliente: [nombre]
+Zona: [barrio / zona]
+• [cantidad] × [producto]
+• [cantidad] × [producto]
+Total: Bs [total]</div></div>
+    </div>
+    ${foot("Guía para revendedores", "Uso interno")}
+  </section>`);
+
+  pages.push(`<section class="page">
+    ${head("05 · MENSAJES LISTOS")}
+    <div class="gbody">
+      <div class="eyebrow">Copiar y pegar en WhatsApp</div><h2>Mensajes <em>listos.</em></h2>
+      <div class="msg"><span class="t">Para presentar el catálogo</span>Hola! 👋 Te comparto el catálogo de Nexora Labs, péptidos de alta pureza. Cualquier consulta escribime y te asesoro. 🙌</div>
+      <div class="msg"><span class="t">Cuando preguntan por un producto</span>¡Buenísimo! Te paso la ficha del producto con todo el detalle: qué es, para qué sirve y cómo se conserva. Siempre te recomiendo consultarlo con un profesional de la salud. ¿Querés que te lo reserve?</div>
+      <div class="msg"><span class="t">Para confirmar un pedido</span>Perfecto, te confirmo tu pedido:
+• [cantidad] × [producto]
+Total: Bs [total]
+¿Me pasás tu nombre y tu zona para coordinar la entrega? 📦</div>
+      <div class="msg"><span class="t">Seguimiento (una semana después)</span>Hola [nombre]! ¿Cómo te fue con tu pedido? Cualquier cosa que necesites, acá estoy. 😊</div>
+    </div>
+    ${foot("Guía para revendedores", "Uso interno")}
+  </section>`);
+}
+
+({catalogo, fichas, guia})[DOC]();
+document.body.insertAdjacentHTML("beforeend", pages.join(""));
+</script>
+</body>
+</html>
