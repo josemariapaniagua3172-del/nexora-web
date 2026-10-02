@@ -1,4 +1,4 @@
-# Marketing — Nexora Labs
+# Marketing — Nexora
 
 Carpeta de trabajo del agente de Meta (`/meta`). No se publica en la web.
 

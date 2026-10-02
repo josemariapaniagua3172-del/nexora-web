@@ -1,6 +1,15 @@
 {
   "_ayuda": "Agregá un bloque por revendedor. id: sin espacios ni acentos (nombre de la carpeta). telefono: con código de país.",
   "revendedores": [
-    { "id": "nexora", "nombre": "Nexora Labs", "telefono": "+591 57022195" }
+    {
+      "id": "nexora",
+      "nombre": "Nexora",
+      "telefono": "+591 57022195"
+    },
+    {
+      "id": "maria-ugarte",
+      "nombre": "María Ugarte",
+      "telefono": "+591 78528002"
+    }
   ]
 }

@@ -3,8 +3,8 @@
 Todas las piezas son de marca, confianza y estilo de vida (🟢): no muestran frascos, nombres de productos ni precios.
 
 ## Nombre y usuario (usar el mismo en las 3 redes)
-- Nombre visible: **Nexora Labs · Santa Cruz**
-- Usuario: `@nexoralabs` → si está tomado: `@nexora.labs`, `@nexoralabs.scz`, `@nexoralabs.bo`
+- Nombre visible: **Nexora · Santa Cruz**
+- Usuario: `@nexora.scz` → si está tomado: `@nexorascz`, `@nexora.bo`, `@nexorabolivia`
 
 ## Biografías
 **Instagram (≤150 caracteres)**
@@ -16,7 +16,7 @@ Atención directa por WhatsApp
 
 **Facebook, descripción de la página (≤255)**
 ```
-Nexora Labs · Santa Cruz de la Sierra. Pagás al recibir (efectivo o QR), contamos con delivery y atención directa por WhatsApp.
+Nexora · Santa Cruz de la Sierra. Pagás al recibir (efectivo o QR), contamos con delivery y atención directa por WhatsApp.
 ```
 
 **TikTok (≤80)**
@@ -40,7 +40,7 @@ Instagram muestra primero lo último que publicaste. Para que el perfil se lea b
 | 6° | `post-04_delivery` | Contamos con delivery en Santa Cruz: te lo llevamos a tu zona. Coordinamos día y horario por WhatsApp. 🛵 |
 | 7° | `post-03_pagas-al-recibir` | En Nexora no te pedimos adelantos. Pagás cuando tenés tu pedido en la mano, en efectivo o con QR. La confianza se gana entrega por entrega. 🤝 |
 | 8° | `post-02a` → `02e` (carrusel) | Cómo comprar sin riesgo, en 4 pasos: 1) Escribinos por WhatsApp. 2) Te lo llevamos. 3) Lo revisás. 4) Y recién ahí pagás. Guardá este post para tenerlo a mano. 📌 |
-| 9° | `post-01_comprar-sin-miedo` | Comprar online no debería darte miedo. Por eso trabajamos distinto: recibís, revisás y recién ahí pagás. Bienvenidos a Nexora Labs. 🇧🇴 |
+| 9° | `post-01_comprar-sin-miedo` | Comprar online no debería darte miedo. Por eso trabajamos distinto: recibís, revisás y recién ahí pagás. Bienvenidos a Nexora. 🇧🇴 |
 
 Hashtags opcionales (máximo 3–5 por post, al final): `#SantaCruzDeLaSierra #SantaCruzBolivia #Bienestar #Disciplina #EstiloDeVida`.
 **No usar** hashtags con nombres de productos, medicamentos ni "bajar de peso".

@@ -1,4 +1,4 @@
-"""Genera los PDF para revendedores de Nexora Labs.
+"""Genera los PDF para revendedores de Nexora.
 
 Uso:
     python3 generar.py            → todos los revendedores de revendedores.json
@@ -55,7 +55,7 @@ def main():
         render("fichas", reseller, os.path.join(OUT, r["id"], "Nexora_Guia_de_productos.pdf"))
     if not only:
         print("Guía interna")
-        render("guia", {"nombre": "Nexora Labs", "telefono": "+591 57022195", "qr": ""},
+        render("guia", {"nombre": "Nexora", "telefono": "+591 57022195", "qr": ""},
                os.path.join(OUT, "Nexora_Guia_para_revendedores.pdf"))
 
 

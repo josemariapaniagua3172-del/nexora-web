@@ -1,4 +1,4 @@
-# Políticas de Meta aplicadas a Nexora Labs
+# Políticas de Meta aplicadas a Nexora
 
 > Resumen de trabajo, no asesoramiento legal. Las políticas cambian: ante la duda, verificar la versión vigente en
 > https://transparency.meta.com/policies/ad-standards/ y https://transparency.meta.com/policies/community-standards/

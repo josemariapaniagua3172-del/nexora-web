@@ -1,4 +1,4 @@
-# Nexora Labs — web del negocio del usuario
+# Nexora — web del negocio del usuario
 
 Sitio estático de una página (sin build, sin dependencias). El usuario habla español rioplatense; respondé en español.
 
@@ -27,5 +27,6 @@ Sitio estático de una página (sin build, sin dependencias). El usuario habla e
 
 ## Pendientes / dudas abiertas
 - Publicado en https://nexoratienda.netlify.app (Netlify, autodeploy desde GitHub josemariapaniagua3172-del/nexora-web, rama main). Si cambia el dominio, actualizar canonical/og:url/og:image en index.html, robots.txt y sitemap.xml. Vista previa al compartir: og-image.jpg (1200×630).
+- Marca: solo "NEXORA" (sin "Labs", por temas administrativos/legales). Las fotos de los frascos en assets/productos todavía muestran "LABS" chiquito en la etiqueta.
 - Productos no incluidos: GHK-CU 70 mg (línea en inglés, sin precio), KLOW80 + KPV.
 - No ayudar a evadir las políticas de anuncios de Meta (el usuario lo pidió antes y se rechazó).

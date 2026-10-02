@@ -1,4 +1,4 @@
-/* Nexora Labs — lógica de la web (catálogo, detalle, pedido por WhatsApp).
+/* Nexora — lógica de la web (catálogo, detalle, pedido por WhatsApp).
    Los datos están en js/productos.js */
 
 const $ = s => document.querySelector(s);

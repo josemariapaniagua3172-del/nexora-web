@@ -1,4 +1,4 @@
-# Nexora Labs — Web
+# Nexora — Web
 
 Web de una página: catálogo, detalle de producto, lista de precios y pedido por WhatsApp.
 Es HTML, CSS y JavaScript sin dependencias ni paso de compilación: se sube la carpeta tal cual.
@@ -12,7 +12,7 @@ nexora-web/
 ├── js/productos.js       ← DATOS: número de WhatsApp, categorías y productos
 ├── js/app.js             Lógica: catálogo, filtros, detalle, pedido y mensaje de WhatsApp
 ├── assets/productos/     Fotos de los frascos (.webp con fondo transparente)
-├── assets/logo/          Logo: símbolo (SVG), horizontal claro/oscuro (PNG), foto de perfil 1080 (PNG)
+├── assets/logo/          Logo: símbolo (SVG), horizontal "NEXORA" claro/oscuro (PNG), foto de perfil 1080 (PNG)
 ├── marketing/            Trabajo del agente de Meta: creativos, calendario, campañas (no se publica)
 ├── favicon.svg           Ícono de la pestaña
 └── apple-touch-icon.png  Ícono al guardar la web en el iPhone

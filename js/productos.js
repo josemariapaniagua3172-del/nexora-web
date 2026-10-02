@@ -1,5 +1,5 @@
 /* =====================================================================
-   NEXORA LABS — DATOS DE LA WEB
+   NEXORA — DATOS DE LA WEB
    Este es el único archivo que necesitás tocar para:
      • cambiar el número de WhatsApp
      • cambiar precios, nombres, descripciones o beneficios

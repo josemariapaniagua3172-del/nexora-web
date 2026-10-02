@@ -1,4 +1,4 @@
-"""Genera el kit de lanzamiento de redes (Nexora Labs) con Chrome headless.
+"""Genera el kit de lanzamiento de redes (Nexora) con Chrome headless.
 Uso:  python3 generar.py      → crea los PNG en esta misma carpeta.
 Para cambiar un texto, editalo acá abajo y volvé a correrlo."""
 import os, subprocess, tempfile
@@ -63,7 +63,7 @@ def page(W, H, cls, inner):
             f'<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">'
             f'<style>{CSS}body{{width:{W}px;height:{H}px}}</style></head><body class="{cls}">{inner}</body></html>')
 
-def brand(): return f'<div class="brand">{MARK}NEXORA LABS</div>'
+def brand(): return f'<div class="brand">{MARK}NEXORA</div>'
 def foot(l="Santa Cruz · Bolivia", r="Pagás al recibir"):
     if l == "Santa Cruz · Bolivia": right = r
     elif r == "Santa Cruz": right = l
@@ -84,13 +84,13 @@ P = (1080, 1350)  # post 4:5
 
 POSTS = {
  # 01 — presentación de marca
- "post-01_comprar-sin-miedo": ("light", brand() + '<div class="body"><div class="eyebrow">Nexora Labs · Santa Cruz</div>'
+ "post-01_comprar-sin-miedo": ("light", brand() + '<div class="body"><div class="eyebrow">Nexora · Santa Cruz</div>'
     '<h1 style="font-size:112px;margin-top:40px">Comprar online <em>no debería darte miedo.</em></h1>'
     '<p class="s">Por eso trabajamos distinto: recibís, revisás y recién ahí pagás.</p></div>' + foot()),
  # 02 — carrusel "cómo comprar sin riesgo" (5 láminas)
  "post-02a_como-comprar": ("dark", brand() + '<div class="num">01 / 05</div><div class="body"><div class="eyebrow">Guía</div>'
     '<h1 style="font-size:120px;margin-top:40px">Cómo comprar <em>sin riesgo.</em></h1>'
-    '<p class="s">En 4 pasos simples. Deslizá →</p></div>' + foot("Nexora Labs", "Santa Cruz")),
+    '<p class="s">En 4 pasos simples. Deslizá →</p></div>' + foot("Nexora", "Santa Cruz")),
  "post-02b_paso-1": ("light", brand() + '<div class="num">02 / 05</div><div class="body">' + ic("chat", 96, "#1F3A6E") +
     '<div class="eyebrow" style="margin-top:50px">Paso 1</div><h1 style="font-size:104px;margin-top:22px">Escribinos por WhatsApp.</h1>'
     '<p class="s">O armá tu pedido en la web: el mensaje llega listo.</p></div>' + foot()),
@@ -102,17 +102,17 @@ POSTS = {
     '<p class="s">Con tranquilidad, en tus manos.</p></div>' + foot()),
  "post-02e_paso-4": ("dark", brand() + '<div class="num">05 / 05</div><div class="body">' + ic("hand", 96, "#9DB4E0") +
     '<div class="eyebrow" style="margin-top:50px">Paso 4</div><h1 style="font-size:104px;margin-top:22px">Y recién ahí pagás.</h1>'
-    '<p class="s">Efectivo o QR. Sin adelantos.</p><div class="pill">Escribinos · link en la bio</div></div>' + foot("Nexora Labs", "Santa Cruz")),
+    '<p class="s">Efectivo o QR. Sin adelantos.</p><div class="pill">Escribinos · link en la bio</div></div>' + foot("Nexora", "Santa Cruz")),
  # 03 — pago al recibir
  "post-03_pagas-al-recibir": ("dark", brand() + '<div class="body"><h1 style="font-size:150px">Pagás <em>al recibir.</em></h1>'
-    '<p class="s">Efectivo o QR, en el momento de la entrega. No te pedimos adelantos.</p></div>' + foot("Nexora Labs", "Santa Cruz")),
+    '<p class="s">Efectivo o QR, en el momento de la entrega. No te pedimos adelantos.</p></div>' + foot("Nexora", "Santa Cruz")),
  # 04 — delivery
  "post-04_delivery": ("light", brand() +
     '<div class="body">' + ic("truck", 110, "#1F3A6E") +
     '<h1 style="font-size:128px;margin-top:46px">Contamos <em>con delivery.</em></h1><p class="s">Te lo llevamos a tu zona en Santa Cruz.</p></div>' + foot()),
  # 05 — estilo de vida
  "post-05_disciplina": ("dark", brand() + '<div class="body"><h1 style="font-size:140px">Disciplina hoy.</h1>'
-    '<h1 style="font-size:140px;margin-top:6px"><em>Un mejor mañana.</em></h1></div>' + foot("Nexora Labs", "Constancia")),
+    '<h1 style="font-size:140px;margin-top:6px"><em>Un mejor mañana.</em></h1></div>' + foot("Nexora", "Constancia")),
  # 06 — revisás antes de pagar
  "post-06_revisas-antes": ("light", brand() + '<div class="body"><div class="eyebrow">Nuestro compromiso</div>'
     '<div class="list" style="margin-top:44px">'
@@ -122,15 +122,15 @@ POSTS = {
     f'<div>{ic("chat",56,"#1F3A6E")}Atención directa</div></div></div>' + foot()),
  # 07 — educativo: conservación (3 láminas)
  "post-07a_conservacion": ("light", brand() + '<div class="num">01 / 03</div><div class="body"><div class="eyebrow">Buenas prácticas</div>'
-    '<h1 style="font-size:116px;margin-top:40px">Cómo se conserva <em>un liofilizado.</em></h1><p class="s">Deslizá →</p></div>' + foot("Educación", "Nexora Labs")),
+    '<h1 style="font-size:116px;margin-top:40px">Cómo se conserva <em>un liofilizado.</em></h1><p class="s">Deslizá →</p></div>' + foot("Educación", "Nexora")),
  "post-07b_frio": ("light", brand() + '<div class="num">02 / 03</div><div class="body"><div class="list">'
     f'<div>{ic("snow",56,"#1F3A6E")}Refrigerado, entre 2 y 8 °C</div>'
     f'<div>{ic("hex",56,"#1F3A6E")}Sin congelar</div>'
     f'<div>{ic("sun",56,"#1F3A6E")}Protegido de la luz</div>'
-    f'<div>{ic("doc",56,"#1F3A6E")}Seguí las indicaciones del envase</div></div></div>' + foot("Educación", "Nexora Labs")),
+    f'<div>{ic("doc",56,"#1F3A6E")}Seguí las indicaciones del envase</div></div></div>' + foot("Educación", "Nexora")),
  "post-07c_profesional": ("dark", brand() + '<div class="num">03 / 03</div><div class="body">'
     '<h1 style="font-size:104px">Ante cualquier duda, <em>consultá a un profesional de la salud.</em></h1>'
-    '<p class="s">Y si querés saber cómo trabajamos, escribinos.</p></div>' + foot("Educación", "Nexora Labs")),
+    '<p class="s">Y si querés saber cómo trabajamos, escribinos.</p></div>' + foot("Educación", "Nexora")),
  # 08 — atención
  "post-08_escribinos": ("light", brand() +
     '<div class="body">' + ic("chat", 110, "#1F3A6E") +
@@ -140,7 +140,7 @@ POSTS = {
  # 09 — estilo de vida
  "post-09_constancia": ("light", brand() + '<div class="body"><div class="eyebrow">Recordatorio</div>'
     '<h1 style="font-size:150px;margin-top:40px">Constancia <em>&gt; intensidad.</em></h1>'
-    '<p class="s">Dormí bien. Tomá agua. Entrená. Repetí.</p></div>' + foot("Nexora Labs", "Disciplina")),
+    '<p class="s">Dormí bien. Tomá agua. Entrená. Repetí.</p></div>' + foot("Nexora", "Disciplina")),
 }
 
 HIGHLIGHTS = [("destacada-1_como-comprar","bag","Cómo comprar"),("destacada-2_entregas","truck","Entregas"),
