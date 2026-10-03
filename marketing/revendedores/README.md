@@ -4,6 +4,7 @@
 |---|---|---|
 | `pdf/<revendedor>/Nexora_Catalogo.pdf` | Clientes | Portada, productos con precio, lista de precios y contacto del revendedor (con QR a su WhatsApp) |
 | `pdf/<revendedor>/Nexora_Guia_de_productos.pdf` | Clientes | Qué es cada péptido, beneficios, presentación, conservación y análisis de laboratorio (cuando coincide con la presentación) |
+| `pdf/generico/...` | Cualquiera | Catálogo y guía de productos sin nombre, teléfono ni QR (`python3 generar.py generico`) |
 | `pdf/Nexora_Guia_para_revendedores.pdf` | Solo revendedores | Cómo trabajar, condiciones (a completar), resumen de productos, qué decir y qué no, mensajes listos |
 
 ## Agregar un revendedor

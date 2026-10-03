@@ -3,6 +3,7 @@
 Uso:
     python3 generar.py            → todos los revendedores de revendedores.json
     python3 generar.py nexora     → solo uno (por su "id")
+    python3 generar.py generico   → solo la versión genérica, sin contacto
 
 Por cada revendedor crea, en pdf/<id>/:
     Nexora_Catalogo.pdf          (para clientes: precios + su contacto)
@@ -53,6 +54,11 @@ def main():
         print(r["nombre"])
         render("catalogo", reseller, os.path.join(OUT, r["id"], "Nexora_Catalogo.pdf"))
         render("fichas", reseller, os.path.join(OUT, r["id"], "Nexora_Guia_de_productos.pdf"))
+    if not only or only == "generico":
+        print("Genérico (sin contacto)")
+        vacio = {"nombre": "", "telefono": "", "qr": ""}
+        render("catalogo", vacio, os.path.join(OUT, "generico", "Nexora_Catalogo.pdf"))
+        render("fichas", vacio, os.path.join(OUT, "generico", "Nexora_Guia_de_productos.pdf"))
     if not only:
         print("Guía interna")
         render("guia", {"nombre": "Nexora", "telefono": "+591 57022195", "qr": ""},
