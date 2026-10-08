@@ -48,7 +48,10 @@ def main():
         if only and r["id"] != only:
             continue
         wa = re.sub(r"\D", "", r["telefono"])
-        msg = f"Hola {r['nombre'].split()[0]}! Vi el catálogo de Nexora y quiero hacer una consulta."
+        partes = r["nombre"].split()
+        # si el nombre empieza con un título (Dr., Dra., Doc), el saludo lo conserva: "Hola Dr. Leonardo!"
+        saludo = " ".join(partes[:2]) if partes[0].lower().rstrip(".") in ("dr", "dra", "doc", "lic") else partes[0]
+        msg = f"Hola {saludo}! Vi el catálogo de Nexora y quiero hacer una consulta."
         reseller = {"nombre": r["nombre"], "telefono": r["telefono"],
                     "qr": qr_svg(f"https://wa.me/{wa}?text={urllib.parse.quote(msg)}")}
         print(r["nombre"])

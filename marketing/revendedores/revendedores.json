@@ -15,6 +15,11 @@
       "id": "mery-banzer",
       "nombre": "Mery Banzer",
       "telefono": "+591 77370088"
+    },
+    {
+      "id": "leonardo-montero",
+      "nombre": "Dr. Leonardo Montero",
+      "telefono": "+591 71012710"
     }
   ]
 }
