@@ -11,6 +11,10 @@ const FICHAS = {
   tr100: {
     que: "Péptido de acción dual sobre los receptores GIP y GLP-1, dos hormonas que participan en la regulación del apetito y del azúcar en sangre.",
     vial: "Vial de 10 ml", lab: null },
+  tr60: {
+    que: "Péptido de acción dual sobre los receptores GIP y GLP-1, dos hormonas que participan en la regulación del apetito y del azúcar en sangre.",
+    vial: "Vial de 3 ml",
+    lab: { quien: "Janoshik Analytical · test #169208", datos: ["Contenido: 65,02 mg", "Pureza: 99,82 %"] } },
   rt60: {
     que: "Péptido de triple acción sobre los receptores GIP, GLP-1 y glucagón. Es una de las moléculas más estudiadas hoy en el área metabólica.",
     vial: "Vial de 3 ml",
@@ -31,6 +35,9 @@ const FICHAS = {
     vial: "Vial de 3 ml",
     lab: { quien: "Janoshik Analytical · test #169217", datos: ["CJC-1295: 4,95 mg", "Ipamorelina: 4,93 mg"] } },
   tesa: {
+    que: "Análogo de la hormona liberadora de hormona de crecimiento (GHRH). Estimula la liberación natural de hormona de crecimiento y se estudia especialmente por su efecto sobre la grasa visceral.",
+    vial: "Vial de 3 ml", lab: null },
+  tesa10: {
     que: "Análogo de la hormona liberadora de hormona de crecimiento (GHRH). Estimula la liberación natural de hormona de crecimiento y se estudia especialmente por su efecto sobre la grasa visceral.",
     vial: "Vial de 3 ml", lab: null },
 };
