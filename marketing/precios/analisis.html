@@ -1,0 +1,152 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Análisis de precios</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+:root{--bg:#F6F5F1;--ink:#101317;--mute:#676B72;--line:#E4E1DA;--accent:#1F3A6E;--ok:#1B7A3E;--bad:#A3281F;--warn:#B26A00}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Manrope,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;background:var(--bg);position:relative;overflow:hidden;page-break-after:always;padding:16mm}
+.head{display:flex;justify-content:space-between;align-items:center;font-size:8pt;letter-spacing:.3em;font-weight:600;color:var(--mute)}
+.brand{display:flex;align-items:center;gap:3mm;color:var(--ink);letter-spacing:.38em;font-size:9pt}
+.brand svg{width:7mm;height:7mm}
+.eyebrow{font-size:8pt;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);font-weight:600}
+h1{font-size:30pt;font-weight:500;letter-spacing:-.025em;line-height:1.05;margin:4mm 0 0}
+h1 em,h2 em{font-style:normal;font-weight:300;color:var(--mute)}
+h2{font-size:17pt;font-weight:500;letter-spacing:-.02em;margin:6mm 0 2mm}
+p{font-size:10pt;line-height:1.5;margin-top:2mm}
+p.lead{font-size:12pt;color:var(--mute);margin-top:5mm}
+table{width:100%;border-collapse:collapse;font-size:10pt;margin-top:4mm}
+th{text-align:left;font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:2mm 2mm 2mm 0;border-bottom:1px solid var(--ink)}
+td{padding:2mm 2mm 2mm 0;border-bottom:1px solid var(--line)}
+td.n,th.n{text-align:right}
+.hl td{background:#fff}
+b{font-weight:600}
+.tag{display:inline-block;font-size:7.5pt;font-weight:700;letter-spacing:.08em;padding:.6mm 2mm;border-radius:99px;color:#fff}
+.t-ok{background:var(--ok)}.t-bad{background:var(--bad)}.t-warn{background:var(--warn)}
+.box{background:#fff;border:1px solid var(--line);border-radius:4mm;padding:4mm 5mm;margin-top:4mm}
+.box.dark{background:var(--ink);color:#F6F5F1;border:0}
+.box.dark .eyebrow{color:#9CA2AB}
+.bars{margin-top:4mm}
+.bar{display:grid;grid-template-columns:34mm 1fr 18mm;align-items:center;gap:3mm;font-size:9.5pt;margin:1.5mm 0}
+.bar .t{height:5mm;border-radius:1.5mm;background:var(--accent)}
+.bar .t.bad{background:var(--bad)}
+.bar .v{text-align:right;font-weight:600}
+.foot{position:absolute;left:16mm;right:16mm;bottom:12mm;display:flex;justify-content:space-between;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600;border-top:1px solid var(--line);padding-top:4mm}
+ul{list-style:none;margin-top:3mm}
+li{font-size:10pt;line-height:1.45;padding:1.6mm 0 1.6mm 5mm;position:relative;border-bottom:1px solid var(--line)}
+li::before{content:"";position:absolute;left:0;top:4.2mm;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+</style></head><body>
+<script>
+const MARK='<svg viewBox="0 0 64 64"><path d="M32 2 58 17v30L32 62 6 47V17Z" fill="#101317"/><g fill="#F6F5F1"><rect x="20" y="20" width="5" height="24"/><rect x="39" y="20" width="5" height="24"/><path d="M25 20h5.2l8.8 17.5V44h-.2L25 26.5Z"/></g></svg>';
+document.write = document.write;
+</script>
+
+<!-- PÁGINA 1 -->
+<section class="page">
+  <div class="head"><div class="brand"><span class="mk"></span>NEXORA</div><span>ANÁLISIS DE PRECIOS · OCT 2026</span></div>
+  <div class="eyebrow" style="margin-top:10mm">Documento interno · confidencial</div>
+  <h1>Precios por presentación: <em>¿tienen lógica?</em></h1>
+  <p class="lead">Con la llegada de Tirzepatide 60 mg y Tesamorelin 10 mg, revisamos si los precios de cada familia de producto se ven coherentes para el cliente.</p>
+
+  <h2>La regla de oro</h2>
+  <p>Los clientes de péptidos comparan mucho el <b>precio por miligramo</b> (Bs ÷ mg). Para que una lista de precios se perciba justa y ordenada:</p>
+  <ul>
+    <li>La presentación <b>más grande</b> tiene que ser la <b>más barata por mg</b>: premia al que compra más.</li>
+    <li>El salto no puede ser exagerado: lo habitual es que <b>el doble de mg cueste entre 1,6 y 1,7 veces más</b>. Si cuesta mucho menos, la chica parece una mala compra; si cuesta mucho más, nadie compra la grande.</li>
+    <li><b>Dos frascos chicos nunca deberían costar menos que uno grande</b> con la misma cantidad: si pasa, el cliente (o un revendedor) compra los chicos y deja de comprar el grande.</li>
+  </ul>
+
+  <div class="box dark" style="margin-top:6mm">
+    <div class="eyebrow">Conclusión</div>
+    <p style="font-size:12pt;margin-top:3mm;color:#F6F5F1">En <b>Tesamorelin</b> el salto de precio entre 10 y 20 mg es demasiado chico: la de 10 mg queda cara. En <b>Tirzepatide</b> la escalera está al revés: <b>dos TR60 cuestan menos que un TR120</b>. Proponemos tres ajustes de precio.</p>
+  </div>
+
+  <h2>Resumen de la propuesta</h2>
+  <table>
+    <tr><th>Producto</th><th class="n">Hoy</th><th class="n">Propuesto</th><th>Motivo</th></tr>
+    <tr class="hl"><td><b>Tesamorelin 10 mg</b></td><td class="n">Bs 970</td><td class="n"><b>Bs 850</b></td><td>Que no parezca cara frente a la de 20</td></tr>
+    <tr><td>Tesamorelin 20 mg</td><td class="n">Bs 1.400</td><td class="n">Bs 1.400</td><td>Sin cambios</td></tr>
+    <tr class="hl"><td><b>Tirzepatide 60 mg (TR60)</b></td><td class="n">Bs 970</td><td class="n"><b>Bs 1.150</b></td><td>Que 2 × TR60 no compita con el TR120</td></tr>
+    <tr><td>Tirzepatide 100 mg (TR100)</td><td class="n">Bs 1.800</td><td class="n">Bs 1.800</td><td>Sin cambios</td></tr>
+    <tr class="hl"><td><b>Tirzepatide 120 mg (TR120)</b></td><td class="n">Bs 2.200</td><td class="n"><b>Bs 2.100</b></td><td>Precio público de tu cuadro; ordena la escalera</td></tr>
+  </table>
+  <div class="foot"><span>Nexora · Uso interno</span><span>01 / 03</span></div>
+</section>
+
+<!-- PÁGINA 2 -->
+<section class="page">
+  <div class="head"><div class="brand"><span class="mk"></span>NEXORA</div><span>TESAMORELIN</span></div>
+  <div class="eyebrow" style="margin-top:10mm">Familia 1</div>
+  <h1>Tesamorelin <em>10 y 20 mg</em></h1>
+
+  <h2>Hoy</h2>
+  <table>
+    <tr><th>Presentación</th><th class="n">Precio</th><th class="n">Bs por mg</th><th class="n">20 mg ÷ 10 mg</th><th>Lectura</th></tr>
+    <tr><td>10 mg</td><td class="n">Bs 970</td><td class="n"><b>97,0</b></td><td class="n" rowspan="2" style="vertical-align:middle"><b>1,44×</b></td><td><span class="tag t-bad">CARA</span></td></tr>
+    <tr><td>20 mg</td><td class="n">Bs 1.400</td><td class="n"><b>70,0</b></td><td><span class="tag t-ok">OK</span></td></tr>
+  </table>
+  <p>La de 20 trae el <b>doble</b> de producto pero cuesta solo un <b>44 % más</b>. Para el cliente, la de 10 mg queda como "una mala compra" y puede dar la sensación de que el precio está inflado.</p>
+
+  <div class="bars">
+    <div class="bar"><span>10 mg · hoy</span><div class="t bad" style="width:97%"></div><span class="v">97,0</span></div>
+    <div class="bar"><span>10 mg · propuesto</span><div class="t" style="width:85%"></div><span class="v">85,0</span></div>
+    <div class="bar"><span>20 mg</span><div class="t" style="width:70%"></div><span class="v">70,0</span></div>
+    <p style="font-size:8.5pt;color:var(--mute)">Bs por mg (más corto = más barato por mg)</p>
+  </div>
+
+  <h2>Propuesta</h2>
+  <table>
+    <tr><th>Presentación</th><th class="n">Precio</th><th class="n">Bs por mg</th><th class="n">20 mg ÷ 10 mg</th><th>Lectura</th></tr>
+    <tr class="hl"><td>10 mg</td><td class="n"><b>Bs 850</b></td><td class="n">85,0</td><td class="n" rowspan="2" style="vertical-align:middle"><b>1,65×</b></td><td><span class="tag t-ok">OK</span></td></tr>
+    <tr><td>20 mg</td><td class="n">Bs 1.400</td><td class="n">70,0</td><td><span class="tag t-ok">MEJOR VALOR</span></td></tr>
+  </table>
+
+  <div class="box">
+    <div class="eyebrow">Por qué funciona</div>
+    <p>La de 20 sigue siendo claramente la mejor opción (empuja al cliente hacia el frasco más grande), y la de 10 queda como una entrada razonable para quien quiere probar. La ganancia por frasco sigue siendo alta: costo del lote Bs 280,17 → utilidad bruta de <b>Bs 569,83</b> (antes Bs 689,83).</p>
+  </div>
+  <div class="foot"><span>Nexora · Uso interno</span><span>02 / 03</span></div>
+</section>
+
+<!-- PÁGINA 3 -->
+<section class="page">
+  <div class="head"><div class="brand"><span class="mk"></span>NEXORA</div><span>TIRZEPATIDE</span></div>
+  <div class="eyebrow" style="margin-top:10mm">Familia 2</div>
+  <h1>Tirzepatide <em>60, 100 y 120 mg</em></h1>
+
+  <h2>Hoy: la escalera está al revés</h2>
+  <table>
+    <tr><th>Presentación</th><th class="n">Precio</th><th class="n">Bs por mg</th><th>Lectura</th></tr>
+    <tr><td>TR60 · 60 mg</td><td class="n">Bs 970</td><td class="n"><b>16,2</b></td><td><span class="tag t-bad">LA MÁS BARATA POR MG</span></td></tr>
+    <tr><td>TR100 · 100 mg</td><td class="n">Bs 1.800</td><td class="n"><b>18,0</b></td><td></td></tr>
+    <tr><td>TR120 · 120 mg</td><td class="n">Bs 2.200</td><td class="n"><b>18,3</b></td><td><span class="tag t-bad">LA MÁS CARA POR MG</span></td></tr>
+  </table>
+  <div class="box" style="border-color:var(--bad)">
+    <div class="eyebrow" style="color:var(--bad)">El problema</div>
+    <p><b>2 × TR60 = 120 mg por Bs 1.940</b>, mientras que <b>1 × TR120 = 120 mg por Bs 2.200</b>. El cliente que hace la cuenta ahorra Bs 260 comprando dos chicos, y el TR120 —tu producto más caro— deja de venderse.</p>
+  </div>
+
+  <h2>Propuesta</h2>
+  <table>
+    <tr><th>Presentación</th><th class="n">Precio</th><th class="n">Bs por mg</th><th class="n">Utilidad bruta*</th></tr>
+    <tr class="hl"><td>TR60 · 60 mg</td><td class="n"><b>Bs 1.150</b></td><td class="n">19,2</td><td class="n">Bs 869,83</td></tr>
+    <tr><td>TR100 · 100 mg</td><td class="n">Bs 1.800</td><td class="n">18,0</td><td class="n">Bs 1.440,84</td></tr>
+    <tr class="hl"><td>TR120 · 120 mg</td><td class="n"><b>Bs 2.100</b></td><td class="n">17,5</td><td class="n">Bs 1.593,65</td></tr>
+  </table>
+  <div class="bars">
+    <div class="bar"><span>TR60</span><div class="t" style="width:96%"></div><span class="v">19,2</span></div>
+    <div class="bar"><span>TR100</span><div class="t" style="width:90%"></div><span class="v">18,0</span></div>
+    <div class="bar"><span>TR120</span><div class="t" style="width:87.5%"></div><span class="v">17,5</span></div>
+  </div>
+  <p>Ahora el precio por mg baja a medida que sube la presentación, y <b>2 × TR60 (Bs 2.300) cuestan más que 1 × TR120 (Bs 2.100)</b>. El TR60 queda como puerta de entrada y el TR120 como la compra más conveniente. Bs 2.100 es el precio público que ya figura en tu cuadro maestro.</p>
+
+  <div class="box dark">
+    <div class="eyebrow">Antes de decidir</div>
+    <p style="color:#F6F5F1">Son propuestas para ordenar la lógica de precios. Conviene contrastarlas con lo que se cobra en el mercado de Santa Cruz y con los acuerdos con revendedores. Cuando se definan, se actualizan web, catálogos y PDF de todos los revendedores.</p>
+  </div>
+  <p style="font-size:8pt;color:var(--mute);margin-top:4mm">* Utilidad bruta = precio − costo real por vial del último lote del cuadro maestro (TR60 Bs 280,17 · TR100 Bs 359,16 · TR120 Bs 506,35). No descuenta imprevistos ni gastos de venta.</p>
+  <div class="foot"><span>Nexora · Uso interno</span><span>03 / 03</span></div>
+</section>
+<script>document.querySelectorAll('.mk').forEach(e=>e.outerHTML=MARK);</script>
+</body></html>
