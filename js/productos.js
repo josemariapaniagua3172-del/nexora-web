@@ -36,7 +36,7 @@ const PRODUCTS_ALL = [
   { id:"tr100", img:"tr100.webp", name:"TR100", sub:"Tirzepatide", mg:"100 mg", price:1800, cat:"met",
     tag:"Control del peso, una vida más equilibrada. Actúa sobre múltiples vías metabólicas.",
     b:["Control del apetito","Regula el azúcar en sangre","Favorece la pérdida de grasa","Mejora la salud metabólica","Apoya la salud cardiovascular","Aumenta la energía y el bienestar"] },
-  { id:"tr60", img:"tr60.webp", name:"TR60", sub:"Tirzepatide", mg:"60 mg", price:1150, cat:"met",
+  { id:"tr60", img:"tr60.webp", name:"TR60", sub:"Tirzepatide", mg:"60 mg", price:1050, cat:"met",
     tag:"Control del peso, una vida más equilibrada. Actúa sobre múltiples vías metabólicas.",
     b:["Control del apetito","Regula el azúcar en sangre","Favorece la pérdida de grasa","Mejora la salud metabólica","Apoya la salud cardiovascular","Aumenta la energía y el bienestar"] },
   { id:"rt60", img:"rt60.webp", name:"RT60", sub:"Retatrutide", mg:"60 mg", price:1900, cat:"met",
