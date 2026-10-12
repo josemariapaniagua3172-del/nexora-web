@@ -9,3 +9,4 @@
 | 2026-10-09 | Catálogo + web | Nuevos productos: TR60 (Tirzepatide 60 mg) y Tesamorelin 10 mg, Bs 970 c/u. PDF regenerados para todos los revendedores | — |
 | 2026-10-09 | Precios | TR60 Bs 1.150 y Tesamorelin 10 Bs 850 (según análisis de precios) | — |
 | 2026-10-09 | Precios | TR60 pasa a Bs 1.050 | — |
+| 2026-10-12 | Competencia | Auditoría vs ETHOS LAB y propuesta de programa de revendedores | Pendiente de aprobación |
